@@ -1,10 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/brand/Container";
-import { Github as GithubIcon } from "lucide-react";
-import { Twitter as TwitterIcon } from "lucide-react";
-import { Linkedin as LinkedinIcon } from "lucide-react";
-import { Youtube as YoutubeIcon } from "lucide-react";
+import { Send, MessageCircle, Globe, Rss } from "lucide-react";
 
 const cols = [
   {
@@ -53,10 +50,10 @@ export function Footer() {
               Tech fire for video workflows. Turn raw footage into publish-ready content at scale.
             </p>
             <div className="mt-6 flex gap-3 text-smoke/50">
-              <a href="#" aria-label="Twitter" className="hover:text-smoke"><Twitter size={18} /></a>
-              <a href="#" aria-label="LinkedIn" className="hover:text-smoke"><Linkedin size={18} /></a>
-              <a href="#" aria-label="YouTube" className="hover:text-smoke"><Youtube size={18} /></a>
-              <a href="#" aria-label="GitHub" className="hover:text-smoke"><Github size={18} /></a>
+              <a href="#" aria-label="X" className="hover:text-smoke"><Send size={18} /></a>
+              <a href="#" aria-label="LinkedIn" className="hover:text-smoke"><MessageCircle size={18} /></a>
+              <a href="#" aria-label="YouTube" className="hover:text-smoke"><Globe size={18} /></a>
+              <a href="#" aria-label="RSS" className="hover:text-smoke"><Rss size={18} /></a>
             </div>
           </div>
           {cols.map((col) => (
