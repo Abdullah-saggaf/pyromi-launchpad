@@ -9,38 +9,218 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as ProductRouteImport } from './routes/product'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsStreamersRouteImport } from './routes/solutions.streamers'
+import { Route as SolutionsEnterpriseRouteImport } from './routes/solutions.enterprise'
+import { Route as SolutionsAgenciesRouteImport } from './routes/solutions.agencies'
 
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductRoute = ProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsStreamersRoute = SolutionsStreamersRouteImport.update({
+  id: '/streamers',
+  path: '/streamers',
+  getParentRoute: () => SolutionsRoute,
+} as any)
+const SolutionsEnterpriseRoute = SolutionsEnterpriseRouteImport.update({
+  id: '/enterprise',
+  path: '/enterprise',
+  getParentRoute: () => SolutionsRoute,
+} as any)
+const SolutionsAgenciesRoute = SolutionsAgenciesRouteImport.update({
+  id: '/agencies',
+  path: '/agencies',
+  getParentRoute: () => SolutionsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/product': typeof ProductRoute
+  '/resources': typeof ResourcesRoute
+  '/signup': typeof SignupRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/solutions/agencies': typeof SolutionsAgenciesRoute
+  '/solutions/enterprise': typeof SolutionsEnterpriseRoute
+  '/solutions/streamers': typeof SolutionsStreamersRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/product': typeof ProductRoute
+  '/resources': typeof ResourcesRoute
+  '/signup': typeof SignupRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/solutions/agencies': typeof SolutionsAgenciesRoute
+  '/solutions/enterprise': typeof SolutionsEnterpriseRoute
+  '/solutions/streamers': typeof SolutionsStreamersRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/product': typeof ProductRoute
+  '/resources': typeof ResourcesRoute
+  '/signup': typeof SignupRoute
+  '/solutions': typeof SolutionsRouteWithChildren
+  '/solutions/agencies': typeof SolutionsAgenciesRoute
+  '/solutions/enterprise': typeof SolutionsEnterpriseRoute
+  '/solutions/streamers': typeof SolutionsStreamersRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/contact'
+    | '/login'
+    | '/pricing'
+    | '/product'
+    | '/resources'
+    | '/signup'
+    | '/solutions'
+    | '/solutions/agencies'
+    | '/solutions/enterprise'
+    | '/solutions/streamers'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/contact'
+    | '/login'
+    | '/pricing'
+    | '/product'
+    | '/resources'
+    | '/signup'
+    | '/solutions'
+    | '/solutions/agencies'
+    | '/solutions/enterprise'
+    | '/solutions/streamers'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/login'
+    | '/pricing'
+    | '/product'
+    | '/resources'
+    | '/signup'
+    | '/solutions'
+    | '/solutions/agencies'
+    | '/solutions/enterprise'
+    | '/solutions/streamers'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  LoginRoute: typeof LoginRoute
+  PricingRoute: typeof PricingRoute
+  ProductRoute: typeof ProductRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SignupRoute: typeof SignupRoute
+  SolutionsRoute: typeof SolutionsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product': {
+      id: '/product'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof ProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +228,55 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/streamers': {
+      id: '/solutions/streamers'
+      path: '/streamers'
+      fullPath: '/solutions/streamers'
+      preLoaderRoute: typeof SolutionsStreamersRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/solutions/enterprise': {
+      id: '/solutions/enterprise'
+      path: '/enterprise'
+      fullPath: '/solutions/enterprise'
+      preLoaderRoute: typeof SolutionsEnterpriseRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
+    '/solutions/agencies': {
+      id: '/solutions/agencies'
+      path: '/agencies'
+      fullPath: '/solutions/agencies'
+      preLoaderRoute: typeof SolutionsAgenciesRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
   }
 }
 
+interface SolutionsRouteChildren {
+  SolutionsAgenciesRoute: typeof SolutionsAgenciesRoute
+  SolutionsEnterpriseRoute: typeof SolutionsEnterpriseRoute
+  SolutionsStreamersRoute: typeof SolutionsStreamersRoute
+}
+
+const SolutionsRouteChildren: SolutionsRouteChildren = {
+  SolutionsAgenciesRoute: SolutionsAgenciesRoute,
+  SolutionsEnterpriseRoute: SolutionsEnterpriseRoute,
+  SolutionsStreamersRoute: SolutionsStreamersRoute,
+}
+
+const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(
+  SolutionsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  LoginRoute: LoginRoute,
+  PricingRoute: PricingRoute,
+  ProductRoute: ProductRoute,
+  ResourcesRoute: ResourcesRoute,
+  SignupRoute: SignupRoute,
+  SolutionsRoute: SolutionsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
