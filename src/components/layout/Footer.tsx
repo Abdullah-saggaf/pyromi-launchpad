@@ -1,7 +1,10 @@
 import { Link } from "@tanstack/react-router";
 import { Logo } from "@/components/brand/Logo";
 import { Container } from "@/components/brand/Container";
-import { Github, Twitter, Linkedin, Youtube } from "lucide-react";
+import { Github as GithubIcon } from "lucide-react";
+import { Twitter as TwitterIcon } from "lucide-react";
+import { Linkedin as LinkedinIcon } from "lucide-react";
+import { Youtube as YoutubeIcon } from "lucide-react";
 
 const cols = [
   {
