@@ -7,6 +7,7 @@ import { Container } from "@/components/brand/Container";
 import { cn } from "@/lib/utils";
 
 const nav = [
+  { to: "/", label: "Home" },
   { to: "/product", label: "Product" },
   { to: "/solutions/agencies", label: "Solutions" },
   { to: "/solutions/enterprise", label: "Enterprise" },
