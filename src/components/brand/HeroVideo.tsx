@@ -3,11 +3,17 @@ import { motion } from "framer-motion";
 
 export function HeroVideo() {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    const timeout = window.setTimeout(() => {
+      // Don't block the page if the first frame takes too long on slow networks.
+      setIsLoaded(true);
+    }, 4000);
 
     const handleLoadedMetadata = () => {
       setIsLoaded(true);
@@ -17,7 +23,10 @@ export function HeroVideo() {
     };
 
     video.addEventListener("loadedmetadata", handleLoadedMetadata);
-    return () => video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+    return () => {
+      window.clearTimeout(timeout);
+      video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+    };
   }, []);
 
   return (
@@ -33,7 +42,7 @@ export function HeroVideo() {
             <div className="absolute inset-0 flex items-center justify-center bg-obsidian/80">
               <div className="text-center">
                 <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-smoke/20 border-t-pyromi" />
-                <p className="mt-3 text-sm text-smoke/50">Loading video...</p>
+                <p className="mt-3 text-sm text-smoke/50">{hasError ? "Video unavailable" : "Loading video..."}</p>
               </div>
             </div>
           )}
@@ -45,8 +54,14 @@ export function HeroVideo() {
             muted
             loop
             playsInline
+            preload="metadata"
             className="h-full w-full object-cover"
-            onLoadedMetadata={() => setIsLoaded(true)}
+            onLoadedData={() => setIsLoaded(true)}
+            onCanPlay={() => setIsLoaded(true)}
+            onError={() => {
+              setHasError(true);
+              setIsLoaded(true);
+            }}
           />
         </div>
       </div>

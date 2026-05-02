@@ -56,6 +56,7 @@ export function Hero() {
             Pyromi helps agencies, streamers, and teams turn high-volume raw footage into more
             content — faster, more consistently, without scaling edit hours.
           </p>
+          <p className="mt-4 text-xs text-smoke/60">DEPLOY TEST - latest version</p>
         </motion.div>
 
         {/* Try box */}
