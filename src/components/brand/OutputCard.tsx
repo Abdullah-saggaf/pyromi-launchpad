@@ -117,7 +117,10 @@ export function OutputCard({
         </div>
       </div>
 
-      <p className="mt-3 text-xs text-smoke/75">{source}</p>
+      <div className="mt-3">
+        <p className="text-sm font-semibold leading-tight text-smoke">{title}</p>
+        <p className="mt-1 text-xs text-smoke/60">{source}</p>
+      </div>
     </article>
   );
 }
