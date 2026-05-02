@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Container, Section } from "@/components/brand/Container";
 import { OutputCard } from "@/components/brand/OutputCard";
 
@@ -58,8 +58,45 @@ const clips = [
 export function MadeWithPyromi() {
   const [filter, setFilter] = useState("All");
   const visible = filter === "All" ? clips : clips.filter((c) => c.tag === filter);
-  const loop = useMemo(() => [...visible, ...visible], [visible]);
+  const items = useMemo(() => visible, [visible]);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
+  const scrollerRef = useRef<HTMLDivElement>(null);
+
+  const autoEnabled = filter === "All";
+  const isInteracting = activeIndex !== null || hoverIndex !== null;
+
+  useEffect(() => {
+    if (!autoEnabled) return;
+    if (isInteracting) return;
+
+    const el = scrollerRef.current;
+    if (!el) return;
+
+    let raf = 0;
+    let last = performance.now();
+
+    const speedPxPerSec = 28;
+
+    const tick = (now: number) => {
+      const dt = Math.min(64, now - last);
+      last = now;
+
+      // If there is nothing to scroll, just keep idle.
+      const max = el.scrollWidth - el.clientWidth;
+      if (max > 0) {
+        el.scrollLeft += (speedPxPerSec * dt) / 1000;
+        if (el.scrollLeft >= max - 1) {
+          el.scrollLeft = 0;
+        }
+      }
+
+      raf = requestAnimationFrame(tick);
+    };
+
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [autoEnabled, isInteracting, items.length]);
 
   return (
     <Section>
@@ -92,21 +129,31 @@ export function MadeWithPyromi() {
           </div>
         </div>
 
-        <div className="marquee mt-10 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div
+          ref={scrollerRef}
+          className="marquee mt-10 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+        >
           <div className="marquee-track flex w-max gap-5">
-            {loop.map((c, i) => (
-              <OutputCard
-                key={c.title + i}
-                active={activeIndex === i}
-                tag={c.tag}
-                duration={c.duration}
-                source={c.source}
-                title={c.title}
-                image={c.image}
-                video={c.video}
-                onActivate={() => setActiveIndex(i)}
-                onDeactivate={() => setActiveIndex((prev) => (prev === i ? null : prev))}
-              />
+            {items.map((c, i) => (
+              <div
+                key={c.title}
+                onMouseEnter={() => setHoverIndex(i)}
+                onMouseLeave={() => setHoverIndex((prev) => (prev === i ? null : prev))}
+                onFocusCapture={() => setHoverIndex(i)}
+                onBlurCapture={() => setHoverIndex((prev) => (prev === i ? null : prev))}
+              >
+                <OutputCard
+                  active={activeIndex === i}
+                  tag={c.tag}
+                  duration={c.duration}
+                  source={c.source}
+                  title={c.title}
+                  image={c.image}
+                  video={c.video}
+                  onActivate={() => setActiveIndex(i)}
+                  onDeactivate={() => setActiveIndex((prev) => (prev === i ? null : prev))}
+                />
+              </div>
             ))}
           </div>
         </div>

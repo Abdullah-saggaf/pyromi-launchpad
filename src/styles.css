@@ -300,27 +300,7 @@
   .ember { animation: none !important; }
 }
 
-/* Auto-scrolling marquee for clip showcase */
-@keyframes marquee-scroll {
-  from { transform: translate3d(0, 0, 0); }
-  to   { transform: translate3d(-50%, 0, 0); }
-}
-
 .marquee {
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: contain;
-}
-
-.marquee .marquee-track {
-  animation: marquee-scroll 60s linear infinite;
-  will-change: transform;
-}
-
-.marquee:hover .marquee-track,
-.marquee:focus-within .marquee-track {
-  animation-play-state: paused;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .marquee .marquee-track { animation: none; }
 }
