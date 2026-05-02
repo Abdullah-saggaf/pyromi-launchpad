@@ -34,9 +34,9 @@ export function Features() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="gradient-border rounded-2xl bg-charcoal/80 p-6"
+                className="gradient-border group rounded-2xl bg-charcoal/80 p-6"
               >
-                <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-white/5 text-techpurple">
+                <div className="hover-pop inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-techpurple group-hover:border-techpurple/60">
                   <Icon size={18} />
                 </div>
                 <h3 className="mt-4 font-display text-base font-bold text-smoke">{f.t}</h3>

@@ -57,11 +57,11 @@ export function Solutions() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="gradient-border group relative overflow-hidden rounded-2xl bg-charcoal/80 p-7 transition-all hover:-translate-y-1"
+                className="gradient-border group relative overflow-hidden rounded-2xl bg-charcoal/80 p-7"
               >
                 <div className={`absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br ${c.glow} to-transparent opacity-50 blur-2xl`} />
                 <div className="relative">
-                  <div className={`inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 ${c.tint}`}>
+                  <div className={`hover-pop inline-flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-white/5 ${c.tint} group-hover:border-white/30`}>
                     <Icon size={20} />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-bold text-smoke">{c.title}</h3>
