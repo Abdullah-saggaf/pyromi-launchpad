@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Briefcase, Tv, Building2, ArrowRight } from "lucide-react";
+import { Briefcase, Tv, Building2 } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 
 const cards = [
@@ -78,7 +78,7 @@ export function Solutions() {
                     to={c.to}
                     className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-smoke transition-colors hover:text-techpurple"
                   >
-                    {c.cta} <ArrowRight size={14} />
+                    {c.cta}
                   </Link>
                 </div>
               </motion.div>
