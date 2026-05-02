@@ -33,7 +33,7 @@ const tiers = [
     n: "Enterprise", p: "Custom", per: "", checkClass: "text-pyromi",
     desc: "For company content operations.",
     cta: "Talk to sales",
-    features: ["Everything in Studio", "SSO/SAML", "Roles & permissions", "Usage analytics", "Dedicated success manager", "Custom MSA & DPA"],
+    features: ["Everything in Studio", "Enterprise access controls", "Roles & permissions", "Usage analytics", "Dedicated success manager", "Custom MSA & DPA"],
   },
 ];
 
@@ -41,7 +41,7 @@ const faqs = [
   { q: "Do you offer annual billing?", a: "Yes — Studio is 20% off annually. Enterprise is annual or multi-year." },
   { q: "What counts as a 'video'?", a: "A single source upload. You can generate dozens of clips from one source." },
   { q: "Can I bring my brand kit?", a: "Yes, on Studio and Enterprise. Caption styles, colors, fonts, logos." },
-  { q: "Is my footage private?", a: "Yes. Footage stays in your workspace. Enterprise offers SSO and SOC 2 controls." },
+  { q: "Is my footage private?", a: "Yes. Footage stays in your workspace, with enterprise security and access controls available." },
 ];
 
 function PricingPage() {

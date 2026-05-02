@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const nav = [
   { to: "/", label: "Home" },
   { to: "/product", label: "Product" },
-  { to: "/solutions/agencies", label: "Solutions" },
+  { to: "/solutions", label: "Solutions" },
   { to: "/solutions/enterprise", label: "Enterprise" },
   { to: "/pricing", label: "Pricing" },
   { to: "/resources", label: "Resources" },
@@ -59,7 +59,7 @@ export function Navbar() {
             Login
           </Link>
           <GradientButton asChild size="sm">
-            <Link to="/signup">Try Pyromi →</Link>
+            <Link to="/signup">Try Pyromi Now</Link>
           </GradientButton>
         </div>
 
@@ -94,7 +94,7 @@ export function Navbar() {
             </Link>
             <GradientButton asChild size="md" className="mt-2">
               <Link to="/signup" onClick={() => setOpen(false)}>
-                Try Pyromi →
+                Try Pyromi Now
               </Link>
             </GradientButton>
           </Container>

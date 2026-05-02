@@ -32,7 +32,7 @@ export const Route = createFileRoute("/solutions/agencies")({
         ]}
         quote={{
           q: "Our editors stopped doing the boring 80% and finally focus on the creative parts. Output tripled.",
-          n: "Theo Lindqvist", r: "Founder, Atlas Agency",
+          n: "Pyromi customer", r: "Agency founder",
         }}
       />
       <FinalCta />

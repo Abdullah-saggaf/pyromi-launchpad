@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 import { GradientButton } from "@/components/brand/GradientButton";
 import { Supergraphic } from "@/components/brand/Supergraphic";
@@ -13,15 +12,16 @@ export function FinalCta() {
       <Container className="relative">
         <div className="gradient-border mx-auto max-w-4xl rounded-3xl bg-charcoal/80 p-10 text-center sm:p-16">
           <h2 className="font-display text-4xl font-extrabold leading-tight text-smoke sm:text-6xl">
-            Stop editing more. <br />
-            <span className="text-pyromi">Start shipping more.</span>
+            The edit is still yours. <br />
+            <span className="text-pyromi">The hard part isn’t.</span>
           </h2>
           <p className="mx-auto mt-5 max-w-xl text-smoke/65">
-            Try Pyromi free — bring a real video and see your first clips in minutes.
+            Upload any video and Pyromi builds a first cut automatically. Every cut, caption, and
+            transition it creates is yours to adjust, move, or delete. Start free.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <GradientButton asChild size="lg">
-              <Link to="/signup">Try with my video <ArrowRight size={16} /></Link>
+              <Link to="/signup">Start editing free</Link>
             </GradientButton>
             <GradientButton asChild size="lg" variant="ghost">
               <Link to="/contact">Book a demo</Link>

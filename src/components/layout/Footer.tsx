@@ -47,7 +47,8 @@ export function Footer() {
           <div>
             <Logo className="h-7" />
             <p className="mt-4 max-w-xs text-sm text-smoke/60">
-              Tech fire for video workflows. Turn raw footage into publish-ready content at scale.
+              The AI Video IDE. Built for creators who don’t want to choose between fast and in
+              control.
             </p>
             <div className="mt-6 flex gap-3 text-smoke/75">
               <a href="#" aria-label="X" className="hover:text-smoke"><Send size={18} /></a>
@@ -78,7 +79,7 @@ export function Footer() {
         </div>
         <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/5 pt-6 text-xs text-smoke/75 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Pyromi. All rights reserved.</p>
-          <p>Made with Pyromi · Tech Fire for video teams.</p>
+          <p>Made with Pyromi · AI speed, editor control.</p>
         </div>
       </Container>
     </footer>

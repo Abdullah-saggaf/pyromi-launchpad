@@ -3,12 +3,12 @@ import { Upload, Brain, Scissors, Sparkles, CheckCircle2, Send } from "lucide-re
 import { Container, Section } from "@/components/brand/Container";
 
 const steps = [
-  { icon: Upload, title: "Drop your footage", sub: "Paste a link or upload" },
-  { icon: Brain, title: "AI reads the footage", sub: "Moments, hooks, energy" },
-  { icon: Scissors, title: "Clips generated", sub: "Best moments, framed" },
-  { icon: Sparkles, title: "Polish applied", sub: "Captions, audio, brand" },
-  { icon: CheckCircle2, title: "Review & approve", sub: "Edits + team comments" },
-  { icon: Send, title: "Publish & measure", sub: "Export and track results" },
+  { icon: Upload, title: "Upload Your Footage or Paste a YouTube Link", sub: "Drop a file or paste a link. Both work. Always." },
+  { icon: Brain, title: "Pyromi Reads Your Footage", sub: "Speech, faces, emotion, action — it understands your video, not just the audio." },
+  { icon: Scissors, title: "Describe the Edit You Want", sub: "Plain language. No commands. “Make it punchy with jump cuts and music drops” is enough." },
+  { icon: Sparkles, title: "AI Cleans Everything in One Pass", sub: "Captions, filler removal, beat sync — done simultaneously. Not one by one." },
+  { icon: CheckCircle2, title: "Adjust Anything on Your Timeline", sub: "This is where Pyromi beats every AI-only tool. The edit is still yours." },
+  { icon: Send, title: "Export and Ship", sub: "Export your finished edit and share it wherever your audience is." },
 ];
 
 export function Workflow() {
@@ -16,11 +16,10 @@ export function Workflow() {
     <Section className="bg-charcoal/40">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Workflow</p>
           <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
-            Input → <span className="text-pyromi">Ignition</span> → Output.
+            From raw footage to finished video. Here’s what happens.
           </h2>
-          <p className="mt-3 text-smoke/60">A simple, repeatable pipeline your team can trust.</p>
+          <p className="mt-3 text-smoke/60">No tutorials. No learning curve. Just describe what you want.</p>
         </div>
 
         <div className="relative mt-14">

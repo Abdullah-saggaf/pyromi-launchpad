@@ -17,6 +17,7 @@ import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as SolutionsStreamersRouteImport } from './routes/solutions.streamers'
 import { Route as SolutionsEnterpriseRouteImport } from './routes/solutions.enterprise'
 import { Route as SolutionsAgenciesRouteImport } from './routes/solutions.agencies'
@@ -61,6 +62,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => SolutionsRoute,
+} as any)
 const SolutionsStreamersRoute = SolutionsStreamersRouteImport.update({
   id: '/streamers',
   path: '/streamers',
@@ -89,6 +95,7 @@ export interface FileRoutesByFullPath {
   '/solutions/agencies': typeof SolutionsAgenciesRoute
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/streamers': typeof SolutionsStreamersRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -98,10 +105,10 @@ export interface FileRoutesByTo {
   '/product': typeof ProductRoute
   '/resources': typeof ResourcesRoute
   '/signup': typeof SignupRoute
-  '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/agencies': typeof SolutionsAgenciesRoute
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/streamers': typeof SolutionsStreamersRoute
+  '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +123,7 @@ export interface FileRoutesById {
   '/solutions/agencies': typeof SolutionsAgenciesRoute
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
   '/solutions/streamers': typeof SolutionsStreamersRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +139,7 @@ export interface FileRouteTypes {
     | '/solutions/agencies'
     | '/solutions/enterprise'
     | '/solutions/streamers'
+    | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -140,10 +149,10 @@ export interface FileRouteTypes {
     | '/product'
     | '/resources'
     | '/signup'
-    | '/solutions'
     | '/solutions/agencies'
     | '/solutions/enterprise'
     | '/solutions/streamers'
+    | '/solutions'
   id:
     | '__root__'
     | '/'
@@ -157,6 +166,7 @@ export interface FileRouteTypes {
     | '/solutions/agencies'
     | '/solutions/enterprise'
     | '/solutions/streamers'
+    | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -228,6 +238,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/solutions/': {
+      id: '/solutions/'
+      path: '/'
+      fullPath: '/solutions/'
+      preLoaderRoute: typeof SolutionsIndexRouteImport
+      parentRoute: typeof SolutionsRoute
+    }
     '/solutions/streamers': {
       id: '/solutions/streamers'
       path: '/streamers'
@@ -256,12 +273,14 @@ interface SolutionsRouteChildren {
   SolutionsAgenciesRoute: typeof SolutionsAgenciesRoute
   SolutionsEnterpriseRoute: typeof SolutionsEnterpriseRoute
   SolutionsStreamersRoute: typeof SolutionsStreamersRoute
+  SolutionsIndexRoute: typeof SolutionsIndexRoute
 }
 
 const SolutionsRouteChildren: SolutionsRouteChildren = {
   SolutionsAgenciesRoute: SolutionsAgenciesRoute,
   SolutionsEnterpriseRoute: SolutionsEnterpriseRoute,
   SolutionsStreamersRoute: SolutionsStreamersRoute,
+  SolutionsIndexRoute: SolutionsIndexRoute,
 }
 
 const SolutionsRouteWithChildren = SolutionsRoute._addFileChildren(

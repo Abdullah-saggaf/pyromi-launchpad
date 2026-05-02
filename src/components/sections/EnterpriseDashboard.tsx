@@ -4,7 +4,7 @@ import {
   AreaChart, Area, BarChart, Bar, ResponsiveContainer, XAxis, YAxis,
   Tooltip, PieChart, Pie, Cell,
 } from "recharts";
-import { Shield, Users, BarChart3, ArrowRight } from "lucide-react";
+import { Shield, Users, BarChart3 } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 import { GradientButton } from "@/components/brand/GradientButton";
 
@@ -50,7 +50,7 @@ export function EnterpriseDashboard() {
 
             <ul className="mt-6 space-y-3">
               {[
-                { icon: Shield, t: "SSO/SAML & SOC 2-ready", d: "Secure access at company scale." },
+                { icon: Shield, t: "Enterprise-grade security", d: "Secure access and governance at company scale." },
                 { icon: Users, t: "Roles & permissions", d: "Editors, reviewers, admins, viewers." },
                 { icon: BarChart3, t: "Usage analytics", d: "See output by team, member and brand." },
               ].map((b) => {
@@ -70,7 +70,7 @@ export function EnterpriseDashboard() {
             </ul>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <GradientButton asChild><Link to="/contact">Book a demo <ArrowRight size={16} /></Link></GradientButton>
+              <GradientButton asChild><Link to="/contact">Book a demo</Link></GradientButton>
               <GradientButton asChild variant="ghost"><Link to="/contact">Talk to sales</Link></GradientButton>
             </div>
           </div>

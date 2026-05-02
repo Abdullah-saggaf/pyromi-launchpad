@@ -31,25 +31,28 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Pyromi — Turn hours of footage into publish-ready clips in minutes" },
+      { title: "Pyromi — Half AI. Half you. All editable." },
       {
         name: "description",
         content:
-          "Pyromi is the workflow multiplier for high-volume video teams. Turn raw footage into more clips, faster, with consistent quality.",
+          "Pyromi is the AI Video IDE for creators, streamers, and video teams. Search footage, build edits with AI, and keep every cut, caption, and transition fully editable.",
       },
       { name: "author", content: "Pyromi" },
-      { property: "og:title", content: "Pyromi — Turn hours of footage into publish-ready clips in minutes" },
+      { property: "og:title", content: "Pyromi — Half AI. Half you. All editable." },
       {
         property: "og:description",
-        content: "Turn a 3-hour video into 20 publish-ready clips. Built for agencies, streamers, and enterprise teams.",
+        content:
+          "Pyromi is the AI Video IDE for creators, streamers, and video teams. Search footage, build edits with AI, and keep every cut, caption, and transition fully editable.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Pyromi" },
-      { name: "twitter:title", content: "Pyromi — Turn hours of footage into publish-ready clips in minutes" },
-      { name: "description", content: "Pyromi is an AI-powered workflow multiplier for high-volume video teams, creators, and companies." },
-      { property: "og:description", content: "Pyromi is an AI-powered workflow multiplier for high-volume video teams, creators, and companies." },
-      { name: "twitter:description", content: "Pyromi is an AI-powered workflow multiplier for high-volume video teams, creators, and companies." },
+      { name: "twitter:title", content: "Pyromi — Half AI. Half you. All editable." },
+      {
+        name: "twitter:description",
+        content:
+          "Pyromi is the AI Video IDE for creators, streamers, and video teams. Search footage, build edits with AI, and keep every cut, caption, and transition fully editable.",
+      },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51157685-3207-4fdb-a781-9b23d6e2af5d/id-preview-d0e52b0e--ff1a56d6-667a-4093-abca-e33ae64e3046.lovable.app-1776885000489.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/51157685-3207-4fdb-a781-9b23d6e2af5d/id-preview-d0e52b0e--ff1a56d6-667a-4093-abca-e33ae64e3046.lovable.app-1776885000489.png" },
     ],

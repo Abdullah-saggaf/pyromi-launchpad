@@ -1,16 +1,41 @@
 import { motion } from "framer-motion";
+import { Link } from "@tanstack/react-router";
 import {
-  Scissors, Captions, Volume2, Wand2, Users2, Calendar,
+  Search, Wand2, Captions, Music, Scissors, FileText,
 } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 
-const features = [
-  { icon: Scissors, t: "Smart clip generation", d: "AI finds the moments worth posting — and frames them right." },
-  { icon: Captions, t: "AI captions, 40+ languages", d: "Branded subtitle styles, frame-perfect timing." },
-  { icon: Volume2, t: "Audio cleanup", d: "Remove noise, balance levels, enhance voice clarity." },
-  { icon: Wand2, t: "Reframe & enhance", d: "Vertical, square, or wide — auto-tracked and color-graded." },
-  { icon: Users2, t: "Team review & approvals", d: "Comments, statuses, and one-click edits in-app." },
-  { icon: Calendar, t: "Bulk export & schedule", d: "Push everywhere — or schedule directly to socials." },
+const coreFeatures = [
+  {
+    icon: Search,
+    t: "Find moments instantly",
+    d: "Type what happened and Pyromi finds the exact clip in seconds.",
+  },
+  {
+    icon: Wand2,
+    t: "Build edits with AI",
+    d: "Describe the edit you want and Pyromi builds the first cut on your timeline.",
+  },
+  {
+    icon: Captions,
+    t: "Auto-captions",
+    d: "Generate on-brand animated captions in 40+ languages, fully editable.",
+  },
+  {
+    icon: Music,
+    t: "Beat sync",
+    d: "Sync cuts to music automatically with frame-accurate timing.",
+  },
+  {
+    icon: Scissors,
+    t: "Remove filler words",
+    d: "Clean up pauses, filler words, and dead air in one click.",
+  },
+  {
+    icon: FileText,
+    t: "Edit by transcript",
+    d: "Edit the video by editing text. Delete or rearrange words and the timeline updates.",
+  },
 ];
 
 export function Features() {
@@ -18,14 +43,16 @@ export function Features() {
     <Section className="bg-charcoal/40">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Features</p>
           <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
-            Built to <span className="text-pyromi">support the outcome.</span>
+            Everything you need. Nothing locked.
           </h2>
+          <p className="mt-3 text-smoke/60">
+            Search, edit, caption, animate, and publish — all in one place.
+          </p>
         </div>
 
         <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f, i) => {
+          {coreFeatures.map((f, i) => {
             const Icon = f.icon;
             return (
               <motion.div
@@ -34,7 +61,7 @@ export function Features() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="gradient-border group rounded-2xl bg-charcoal/80 p-6"
+                className="gradient-border group rounded-2xl bg-charcoal/80 p-6 min-h-[178px]"
               >
                 <div className="hover-pop inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-techpurple group-hover:border-techpurple/60">
                   <Icon size={18} />
@@ -44,6 +71,15 @@ export function Features() {
               </motion.div>
             );
           })}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Link
+            to="/product"
+            className="inline-flex items-center rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-smoke/80 transition hover:border-white/30 hover:text-smoke"
+          >
+            Explore all product features
+          </Link>
         </div>
       </Container>
     </Section>

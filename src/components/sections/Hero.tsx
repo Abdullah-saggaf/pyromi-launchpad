@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Sparkles, Play, ArrowRight } from "lucide-react";
+import { Sparkles, Play } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 import { GradientButton } from "@/components/brand/GradientButton";
 import { Supergraphic } from "@/components/brand/Supergraphic";
 import { HeroVideo } from "@/components/brand/HeroVideo";
 
 const audiences = [
-  { id: "agencies", label: "For Agencies", helper: "Turn client footage into more deliverables." },
-  { id: "streamers", label: "For Streamers", helper: "Turn one stream into a week of clips." },
-  { id: "teams", label: "For Teams", helper: "Create more content with consistent output." },
+  { id: "gamers", label: "For Gamers & YouTubers", helper: "Find highlights and build faster edits from long recordings." },
+  { id: "editors", label: "For Editors & Teams", helper: "Automate repetitive work while keeping full creative control." },
+  { id: "orgs", label: "For Video Organizations", helper: "Standardize high-quality output across every editor and project." },
 ] as const;
 
 export function Hero() {
   const [link, setLink] = useState("");
-  const [audience, setAudience] = useState<(typeof audiences)[number]["id"]>("agencies");
+  const [audience, setAudience] = useState<(typeof audiences)[number]["id"]>("gamers");
   const navigate = useNavigate();
 
   const submit = (e: React.FormEvent) => {
@@ -46,15 +46,14 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-smoke/80">
             <Sparkles size={12} className="text-solargold" />
-            Workflow multiplier for video teams
+            The AI Video IDE
           </span>
-          <h1 className="mt-6 font-display text-[40px] font-extrabold leading-[1.05] text-smoke sm:text-6xl lg:text-7xl">
-            Turn a 3-hour video into{" "}
-            <span className="text-pyromi">20 publish-ready clips.</span>
+          <h1 className="mx-auto mt-6 max-w-5xl text-center font-display text-[36px] font-extrabold leading-[1.08] text-smoke sm:text-5xl lg:text-6xl">
+            Pyromi -Half Al. Half you. All editable.
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-base text-smoke/70 sm:text-lg">
-            Pyromi helps agencies, streamers, and teams turn high-volume raw footage into more
-            content — faster, more consistently, without scaling edit hours.
+          <p className="mx-auto mt-5 max-w-[650px] text-base leading-6 text-smoke/70 sm:text-lg">
+            Search hours of footage by describing what happened. Pyromi builds the first cut on
+            your timeline, then lets you edit every cut, caption, effect, and transition.
           </p>
           <p className="mt-4 text-xs text-smoke/60">DEPLOY TEST - latest version</p>
         </motion.div>
@@ -77,14 +76,13 @@ export function Hero() {
               aria-label="Video link"
             />
             <GradientButton type="submit" size="md" className="shrink-0">
-              Try with my video <ArrowRight size={16} />
+              Edit My First Video Free
             </GradientButton>
           </div>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-smoke/75">
             <Link to="/resources" className="inline-flex items-center gap-1 hover:text-smoke">
-              <Play size={12} /> See sample outputs
+              <Play size={12} /> Watch a Real Edit
             </Link>
-            <span>· Free account required — your link is saved.</span>
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
@@ -105,6 +103,9 @@ export function Hero() {
             ))}
           </div>
           <p className="mt-3 text-center text-xs text-smoke/75">{helper}</p>
+          <p className="mt-3 text-center text-xs text-smoke/70">
+            Search 100 hours of footage in seconds. Nothing locked. Everything editable.
+          </p>
         </motion.form>
 
         <HeroVideo />

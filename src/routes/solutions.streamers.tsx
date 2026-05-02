@@ -32,7 +32,7 @@ export const Route = createFileRoute("/solutions/streamers")({
         ]}
         quote={{
           q: "I stream 4 nights a week. Pyromi turns each one into a full week of vertical clips. No editor needed.",
-          n: "Sara Voss", r: "Streamer, 480k followers",
+          n: "Pyromi customer", r: "Gaming creator",
         }}
       />
       <FinalCta />
