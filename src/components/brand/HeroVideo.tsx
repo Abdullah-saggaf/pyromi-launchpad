@@ -49,7 +49,7 @@ export function HeroVideo() {
 
           <video
             ref={videoRef}
-            src="/assets/hero/pyromi_hero_animation.mp4"
+            src="/assets/hero/Pyromi_Hero_Animation_Rev.mp4"
             autoPlay
             muted
             loop
