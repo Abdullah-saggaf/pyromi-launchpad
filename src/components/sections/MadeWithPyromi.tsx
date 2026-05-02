@@ -1,6 +1,4 @@
 import { useState } from "react";
-import useEmblaCarousel from "embla-carousel-react";
-import { motion } from "framer-motion";
 import { Play } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 
@@ -18,15 +16,16 @@ const clips = [
 
 export function MadeWithPyromi() {
   const [filter, setFilter] = useState("All");
-  const [emblaRef] = useEmblaCarousel({ align: "start", dragFree: true, loop: false });
   const visible = filter === "All" ? clips : clips.filter((c) => c.tag === filter);
+  // Duplicate the list so the marquee can loop seamlessly
+  const loop = [...visible, ...visible];
 
   return (
     <Section>
       <Container>
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end">
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Made with Pyromi</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Made with Pyromi</p>
             <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
               Real outputs. <span className="text-pyromi">Real footage.</span>
             </h2>
@@ -40,10 +39,10 @@ export function MadeWithPyromi() {
                 key={f}
                 onClick={() => setFilter(f)}
                 className={
-                  "rounded-full border px-3 py-1.5 text-xs transition " +
+                  "rounded-full px-3 py-1.5 text-xs transition " +
                   (filter === f
-                    ? "border-transparent bg-pyromi text-white"
-                    : "border-white/10 text-smoke/60 hover:border-white/30 hover:text-smoke")
+                    ? "bg-pyromi text-white shadow-[0_4px_18px_-6px_rgba(196,32,32,0.55)]"
+                    : "border border-white/10 text-smoke/60 hover:border-white/30 hover:text-smoke")
                 }
               >
                 {f}
@@ -52,15 +51,14 @@ export function MadeWithPyromi() {
           </div>
         </div>
 
-        <div className="mt-10 overflow-hidden" ref={emblaRef}>
-          <div className="flex gap-5">
-            {visible.map((c, i) => (
-              <motion.article
+        <div
+          className="marquee mt-10 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+          style={{ scrollSnapType: "none" }}
+        >
+          <div className="marquee-track flex w-max gap-5">
+            {loop.map((c, i) => (
+              <article
                 key={c.title + i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
                 className="group relative w-[220px] shrink-0 sm:w-[260px]"
               >
                 <div className={`gradient-border relative aspect-[9/16] overflow-hidden rounded-2xl bg-gradient-to-br ${c.color}`}>
@@ -78,8 +76,8 @@ export function MadeWithPyromi() {
                     <p className="text-sm font-semibold leading-tight text-white">{c.title}</p>
                   </div>
                 </div>
-                <p className="mt-3 text-xs text-smoke/50">{c.source}</p>
-              </motion.article>
+                <p className="mt-3 text-xs text-smoke/75">{c.source}</p>
+              </article>
             ))}
           </div>
         </div>

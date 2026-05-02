@@ -20,7 +20,7 @@ export function Outcomes() {
     <Section>
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Outcomes</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Outcomes</p>
           <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
             Output you can <span className="text-pyromi">measure.</span>
           </h2>
@@ -48,8 +48,14 @@ export function Outcomes() {
           {benefits.map((b) => {
             const Icon = b.icon;
             return (
-              <div key={b.t} className="rounded-2xl border border-white/5 p-6">
-                <Icon size={20} className="text-solargold" />
+              <div
+                key={b.t}
+                className="group gradient-border hover-pop rounded-2xl bg-charcoal/80 p-6"
+              >
+                <Icon
+                  size={20}
+                  className="text-solargold transition-transform duration-300 group-hover:scale-110"
+                />
                 <h3 className="mt-3 font-display font-bold text-smoke">{b.t}</h3>
                 <p className="mt-1.5 text-sm text-smoke/60">{b.d}</p>
               </div>

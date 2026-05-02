@@ -25,7 +25,7 @@ function ResourcesPage() {
     <>
       <Section className="pt-16">
         <Container className="text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Resources</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Resources</p>
           <h1 className="mt-3 font-display text-4xl font-extrabold text-smoke sm:text-6xl">
             See what Pyromi <span className="text-pyromi">actually ships.</span>
           </h1>

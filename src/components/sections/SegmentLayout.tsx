@@ -22,7 +22,7 @@ export function SegmentLayout({ eyebrow, headline, sub, stats, bullets, quote }:
         <div className="absolute left-1/2 top-0 h-[500px] w-[900px] -translate-x-1/2 rounded-full opacity-40 blur-3xl"
              style={{ backgroundImage: "var(--gradient-pyromi-soft)" }} />
         <Container className="relative text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">{eyebrow}</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">{eyebrow}</p>
           <h1 className="mx-auto mt-3 max-w-3xl font-display text-4xl font-extrabold text-smoke sm:text-6xl">
             {headline}
           </h1>

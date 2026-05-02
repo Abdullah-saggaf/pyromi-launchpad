@@ -49,7 +49,7 @@ export function Footer() {
             <p className="mt-4 max-w-xs text-sm text-smoke/60">
               Tech fire for video workflows. Turn raw footage into publish-ready content at scale.
             </p>
-            <div className="mt-6 flex gap-3 text-smoke/50">
+            <div className="mt-6 flex gap-3 text-smoke/75">
               <a href="#" aria-label="X" className="hover:text-smoke"><Send size={18} /></a>
               <a href="#" aria-label="LinkedIn" className="hover:text-smoke"><MessageCircle size={18} /></a>
               <a href="#" aria-label="YouTube" className="hover:text-smoke"><Globe size={18} /></a>
@@ -58,7 +58,7 @@ export function Footer() {
           </div>
           {cols.map((col) => (
             <div key={col.title}>
-              <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-smoke/40">
+              <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-smoke/75">
                 {col.title}
               </h4>
               <ul className="space-y-2.5">
@@ -76,7 +76,7 @@ export function Footer() {
             </div>
           ))}
         </div>
-        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/5 pt-6 text-xs text-smoke/40 sm:flex-row sm:items-center">
+        <div className="mt-12 flex flex-col items-start justify-between gap-3 border-t border-white/5 pt-6 text-xs text-smoke/75 sm:flex-row sm:items-center">
           <p>© {new Date().getFullYear()} Pyromi. All rights reserved.</p>
           <p>Made with Pyromi · Tech Fire for video teams.</p>
         </div>

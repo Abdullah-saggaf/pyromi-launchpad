@@ -71,14 +71,14 @@ export function Hero() {
               value={link}
               onChange={(e) => setLink(e.target.value.slice(0, 500))}
               placeholder="Paste a YouTube, Twitch, Vimeo, or Drive link"
-              className="min-w-0 flex-1 bg-transparent px-3 py-3 text-sm text-smoke placeholder:text-smoke/40 focus:outline-none"
+              className="min-w-0 flex-1 bg-transparent px-3 py-3 text-sm text-smoke placeholder:text-smoke/50 focus:outline-none"
               aria-label="Video link"
             />
             <GradientButton type="submit" size="md" className="shrink-0">
               Try with my video <ArrowRight size={16} />
             </GradientButton>
           </div>
-          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-smoke/50">
+          <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-smoke/75">
             <Link to="/resources" className="inline-flex items-center gap-1 hover:text-smoke">
               <Play size={12} /> See sample outputs
             </Link>
@@ -92,17 +92,17 @@ export function Hero() {
                 type="button"
                 onClick={() => setAudience(a.id)}
                 className={
-                  "rounded-full border px-3.5 py-1.5 text-xs transition-all " +
+                  "rounded-full px-3.5 py-1.5 text-xs transition-all " +
                   (audience === a.id
-                    ? "border-transparent bg-pyromi text-white"
-                    : "border-white/10 text-smoke/70 hover:border-white/30")
+                    ? "bg-pyromi text-white shadow-[0_4px_18px_-6px_rgba(196,32,32,0.55)]"
+                    : "border border-white/10 text-smoke/70 hover:border-white/30")
                 }
               >
                 {a.label}
               </button>
             ))}
           </div>
-          <p className="mt-3 text-center text-xs text-smoke/50">{helper}</p>
+          <p className="mt-3 text-center text-xs text-smoke/75">{helper}</p>
         </motion.form>
 
         {/* Product mockup */}
@@ -119,13 +119,13 @@ export function Hero() {
                 <span className="h-2.5 w-2.5 rounded-full bg-sparkred/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-solargold/80" />
                 <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-                <span className="ml-3 text-[11px] text-smoke/40">pyromi.app · session-247.mp4</span>
+                <span className="ml-3 text-[11px] text-smoke/75">pyromi.app · session-247.mp4</span>
               </div>
 
               <div className="grid gap-3 lg:grid-cols-[1.5fr_1fr]">
                 {/* Timeline */}
                 <div className="rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                  <div className="flex items-center justify-between text-[11px] text-smoke/50">
+                  <div className="flex items-center justify-between text-[11px] text-smoke/75">
                     <span className="inline-flex items-center gap-1.5">
                       <Wand2 size={12} className="text-techpurple" /> AI moments detected
                     </span>
@@ -153,7 +153,7 @@ export function Hero() {
                       ))}
                     </div>
                   </div>
-                  <div className="mt-3 flex items-center gap-2 text-[11px] text-smoke/50">
+                  <div className="mt-3 flex items-center gap-2 text-[11px] text-smoke/75">
                     <Captions size={12} /> Auto-captions · 40 languages
                     <span className="ml-auto rounded bg-white/5 px-2 py-0.5">2:47:13</span>
                   </div>
@@ -161,7 +161,7 @@ export function Hero() {
 
                 {/* Clip grid */}
                 <div className="rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                  <div className="mb-2 flex items-center gap-1.5 text-[11px] text-smoke/50">
+                  <div className="mb-2 flex items-center gap-1.5 text-[11px] text-smoke/75">
                     <LayoutGrid size={12} /> Generated clips
                   </div>
                   <div className="grid grid-cols-3 gap-2">

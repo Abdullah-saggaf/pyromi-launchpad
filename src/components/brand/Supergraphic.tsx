@@ -1,17 +1,21 @@
+/**
+ * Ambient animated backdrop — replaces the old diagonal-stripe pattern.
+ * Renders a few softly drifting ember orbs in the brand palette.
+ * Pointer-events disabled, sits behind content (parent should be `relative`).
+ */
 export function Supergraphic({ className = "" }: { className?: string }) {
   return (
-    <svg
+    <div
       aria-hidden
-      className={"pointer-events-none absolute inset-0 h-full w-full opacity-[0.06] " + className}
-      xmlns="http://www.w3.org/2000/svg"
+      className={
+        "pointer-events-none absolute inset-0 overflow-hidden " + className
+      }
     >
-      <defs>
-        <pattern id="pyromi-flame" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-          <path d="M0 120 L60 0 L72 0 L12 120 Z" fill="white" />
-          <path d="M60 120 L120 0 L132 0 L72 120 Z" fill="white" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#pyromi-flame)" />
-    </svg>
+      <span className="ember ember-a" />
+      <span className="ember ember-b" />
+      <span className="ember ember-c" />
+      <span className="ember ember-d" />
+      <span className="ember ember-e" />
+    </div>
   );
 }

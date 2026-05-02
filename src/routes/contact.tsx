@@ -45,7 +45,7 @@ function ContactPage() {
     <Section className="pt-16">
       <Container className="max-w-2xl">
         <div className="text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Contact</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Contact</p>
           <h1 className="mt-3 font-display text-4xl font-extrabold text-smoke sm:text-5xl">
             Talk to the <span className="text-pyromi">Pyromi team.</span>
           </h1>
@@ -96,12 +96,12 @@ function ContactPage() {
 }
 
 const inputCls =
-  "w-full rounded-xl border border-white/10 bg-charcoal/80 px-4 py-3 text-sm text-smoke placeholder:text-smoke/40 focus:border-techpurple/60 focus:outline-none focus:ring-2 focus:ring-techpurple/30";
+  "w-full rounded-xl border border-white/10 bg-charcoal/80 px-4 py-3 text-sm text-smoke placeholder:text-smoke/50 focus:border-techpurple/60 focus:outline-none focus:ring-2 focus:ring-techpurple/30";
 
 function Field({ label, error, children }: { label: string; error?: string; children: React.ReactNode }) {
   return (
     <label className="block">
-      <span className="mb-1.5 block text-xs font-medium uppercase tracking-widest text-smoke/50">{label}</span>
+      <span className="mb-1.5 block text-xs font-medium uppercase tracking-widest text-smoke/75">{label}</span>
       {children}
       {error && <span className="mt-1 block text-xs text-sparkred">{error}</span>}
     </label>

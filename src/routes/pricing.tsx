@@ -18,19 +18,19 @@ export const Route = createFileRoute("/pricing")({
 
 const tiers = [
   {
-    n: "Starter", p: "$0", per: "/mo",
+    n: "Starter", p: "$0", per: "/mo", checkClass: "text-techpurple",
     desc: "For solo creators testing Pyromi.",
     cta: "Start free",
     features: ["3 videos / month", "Up to 30 min per video", "Auto-captions (10 languages)", "9:16 / 1:1 / 16:9 export"],
   },
   {
-    n: "Studio", p: "$49", per: "/mo per editor", featured: true,
+    n: "Studio", p: "$49", per: "/mo per editor", featured: true, checkClass: "text-solargold",
     desc: "For agencies and high-volume creators.",
     cta: "Start Studio",
     features: ["Unlimited videos", "Up to 4h per video", "Captions (40+ languages)", "Brand kits & presets", "Team review & approvals", "Bulk export & scheduling"],
   },
   {
-    n: "Enterprise", p: "Custom", per: "",
+    n: "Enterprise", p: "Custom", per: "", checkClass: "text-pyromi",
     desc: "For company content operations.",
     cta: "Talk to sales",
     features: ["Everything in Studio", "SSO/SAML", "Roles & permissions", "Usage analytics", "Dedicated success manager", "Custom MSA & DPA"],
@@ -49,7 +49,7 @@ function PricingPage() {
     <>
       <Section className="pt-16">
         <Container className="text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Pricing</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Pricing</p>
           <h1 className="mt-3 font-display text-4xl font-extrabold text-smoke sm:text-6xl">
             Built around <span className="text-pyromi">output, not seats.</span>
           </h1>
@@ -67,19 +67,27 @@ function PricingPage() {
                 key={t.n}
                 className={
                   "gradient-border relative flex flex-col rounded-2xl bg-charcoal/80 p-7 " +
-                  (t.featured ? "lg:-translate-y-3 lg:shadow-[0_30px_80px_-30px_rgba(110,59,255,0.6)]" : "")
+                  (t.featured
+                    ? "bg-[radial-gradient(120%_80%_at_50%_0%,rgba(42,18,117,0.32),transparent_72%)] lg:-translate-y-3 lg:shadow-[0_30px_80px_-30px_rgba(42,18,117,0.55)]"
+                    : "")
                 }
               >
                 {t.featured && (
-                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-pyromi px-3 py-0.5 text-[10px] font-bold uppercase tracking-widest text-white">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-px overflow-hidden rounded-b-2xl bg-pyromi"
+                  />
+                )}
+                {t.featured && (
+                  <span className="absolute -top-3 left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-full bg-pyromi px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-[0_8px_24px_-8px_rgba(196,32,32,0.6)]">
                     Most popular
                   </span>
                 )}
                 <h3 className="font-display text-lg font-bold text-smoke">{t.n}</h3>
-                <p className="mt-1 text-sm text-smoke/55">{t.desc}</p>
+                <p className="mt-1 text-sm text-smoke/80">{t.desc}</p>
                 <div className="mt-5 flex items-baseline gap-1">
                   <span className="font-display text-4xl font-extrabold text-smoke">{t.p}</span>
-                  <span className="text-sm text-smoke/50">{t.per}</span>
+                  <span className="text-sm text-smoke/75">{t.per}</span>
                 </div>
                 <GradientButton
                   asChild
@@ -91,7 +99,7 @@ function PricingPage() {
                 <ul className="mt-6 space-y-3 border-t border-white/5 pt-6">
                   {t.features.map((f) => (
                     <li key={f} className="flex items-start gap-2 text-sm text-smoke/80">
-                      <Check size={14} className="mt-1 text-techpurple flex-shrink-0" />
+                      <Check size={14} className={`mt-1 flex-shrink-0 ${t.checkClass}`} />
                       {f}
                     </li>
                   ))}

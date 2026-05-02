@@ -7,6 +7,7 @@ import { Container } from "@/components/brand/Container";
 import { cn } from "@/lib/utils";
 
 const nav = [
+  { to: "/", label: "Home" },
   { to: "/product", label: "Product" },
   { to: "/solutions/agencies", label: "Solutions" },
   { to: "/solutions/enterprise", label: "Enterprise" },
@@ -46,6 +47,7 @@ export function Navbar() {
               to={item.to}
               className="text-sm text-smoke/70 transition-colors hover:text-smoke"
               activeProps={{ className: "text-smoke" }}
+              activeOptions={item.to === "/" ? { exact: true } : undefined}
             >
               {item.label}
             </Link>

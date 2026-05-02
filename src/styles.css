@@ -53,13 +53,14 @@
   --radius: 0.75rem;
 
   /* Pyromi GSM */
-  --obsidian: oklch(0.13 0.02 270);          /* #0A0B10 */
-  --charcoal: oklch(0.18 0.02 270);          /* #14161E */
+  --obsidian: oklch(0.05 0.012 285);         /* #050508 — true void */
+  --charcoal: oklch(0.11 0.03 285);          /* lifted void surface, cooler */
   --smoke: oklch(0.97 0.005 90);             /* #F6F6F4 */
-  --deepblue: oklch(0.32 0.18 268);          /* #1E2A78 */
-  --techpurple: oklch(0.55 0.27 290);        /* #6E3BFF */
-  --sparkred: oklch(0.65 0.24 25);           /* #FF3B2F */
-  --solargold: oklch(0.82 0.16 75);          /* #FFB627 */
+  --deepviolet: oklch(0.27 0.18 285);        /* #2A1275 — deep navy violet */
+  --deepblue: oklch(0.27 0.18 285);          /* alias */
+  --techpurple: oklch(0.72 0.18 290);        /* brightened violet for readable accents */
+  --sparkred: oklch(0.50 0.22 27);           /* #C42020 — true crimson */
+  --solargold: oklch(0.78 0.15 70);          /* #F8A732 — warm gold */
 
   /* Theme = dark by default */
   --background: var(--obsidian);
@@ -68,36 +69,35 @@
   --card-foreground: oklch(0.97 0.005 90);
   --popover: var(--charcoal);
   --popover-foreground: oklch(0.97 0.005 90);
-  --primary: var(--techpurple);
+  --primary: var(--deepviolet);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.22 0.02 270);
+  --secondary: oklch(0.14 0.04 285);
   --secondary-foreground: oklch(0.97 0.005 90);
-  --muted: oklch(0.22 0.02 270);
-  --muted-foreground: oklch(0.7 0.02 270);
-  --accent: oklch(0.25 0.04 280);
+  --muted: oklch(0.14 0.04 285);
+  --muted-foreground: oklch(0.66 0.04 285);
+  --accent: oklch(0.20 0.10 285);
   --accent-foreground: oklch(0.97 0.005 90);
   --destructive: var(--sparkred);
   --destructive-foreground: oklch(0.99 0 0);
-  --border: oklch(1 0 0 / 8%);
+  --border: oklch(1 0 0 / 6%);
   --input: oklch(1 0 0 / 10%);
-  --ring: var(--techpurple);
+  --ring: var(--deepviolet);
 
+  /* Violet → Crimson → Gold — moody brand gradient */
   --gradient-pyromi: linear-gradient(
     135deg,
-    #1E2A78 0%,
-    #6E3BFF 35%,
-    #FF3B2F 70%,
-    #FFB627 100%
+    #2A1275 0%,
+    #C42020 65%,
+    #F8A732 100%
   );
   --gradient-pyromi-soft: linear-gradient(
     135deg,
-    rgba(30, 42, 120, 0.5) 0%,
-    rgba(110, 59, 255, 0.45) 35%,
-    rgba(255, 59, 47, 0.4) 70%,
-    rgba(255, 182, 39, 0.45) 100%
+    rgba(42, 18, 117, 0.45) 0%,
+    rgba(196, 32, 32, 0.40) 65%,
+    rgba(248, 167, 50, 0.40) 100%
   );
-  --shadow-glow: 0 30px 80px -30px rgba(110, 59, 255, 0.55),
-                 0 10px 50px -20px rgba(255, 59, 47, 0.35);
+  --shadow-glow: 0 30px 80px -30px rgba(42, 18, 117, 0.55),
+                 0 10px 50px -20px rgba(196, 32, 32, 0.25);
 }
 
 @layer base {
@@ -115,9 +115,44 @@
     letter-spacing: -0.02em;
   }
   ::selection {
-    background: rgba(110, 59, 255, 0.4);
+    background: rgba(196, 32, 32, 0.45);
     color: #fff;
   }
+  /* Animated multi-blob ambient gradient — drifts slowly behind everything */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(38% 32% at 18% 22%, rgba(42, 18, 117, 0.55), transparent 70%),
+      radial-gradient(34% 30% at 82% 18%, rgba(196, 32, 32, 0.22), transparent 70%),
+      radial-gradient(40% 34% at 78% 82%, rgba(42, 18, 117, 0.45), transparent 72%),
+      radial-gradient(28% 24% at 32% 78%, rgba(248, 167, 50, 0.10), transparent 72%);
+    background-size: 140% 140%;
+    filter: blur(40px) saturate(115%);
+    animation: pyromi-drift 28s ease-in-out infinite alternate;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(5, 5, 8, 0.55) 100%);
+  }
+  body > * { position: relative; z-index: 1; }
+}
+
+@keyframes pyromi-drift {
+  0%   { background-position:   0%   0%,   100%   0%,   100% 100%,   0% 100%; transform: rotate(0deg); }
+  50%  { background-position:  20%  10%,    80%  20%,    70%  90%,  10%  85%; transform: rotate(0.4deg); }
+  100% { background-position:  10%  20%,    90%  30%,    85%  80%,  20%  90%; transform: rotate(-0.4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before { animation: none; }
 }
 
 @layer utilities {
@@ -135,39 +170,62 @@
   }
   .ring-pyromi {
     box-shadow: 0 0 0 1px transparent,
-                0 0 0 3px rgba(110, 59, 255, 0.35);
+                0 0 0 3px rgba(42, 18, 117, 0.45);
   }
   .glow-pyromi { box-shadow: var(--shadow-glow); }
 
-  /* Premium 1px gradient border using mask trick */
+  /* Premium 1px gradient border — continuous around rounded corners.
+     Uses the mask trick with explicit non-zero mask sizes and no-repeat to
+     prevent corner "holes" caused by subpixel rounding of content-box. */
   .gradient-border {
     position: relative;
     isolation: isolate;
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: transform;
+  }
+  .gradient-border:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow:
+      0 18px 40px -18px rgba(110, 59, 255, 0.35),
+      0 8px 24px -12px rgba(196, 32, 32, 0.28);
   }
   .gradient-border::before {
     content: "";
     position: absolute;
     inset: 0;
-    padding: 1px;
     border-radius: inherit;
+    padding: 1.25px;
     background: var(--gradient-pyromi);
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
+      linear-gradient(#000 0 0) border-box;
+            mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0) border-box;
     -webkit-mask-composite: xor;
             mask-composite: exclude;
-    opacity: 0.3;
+    -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+    opacity: 0.5;
     transition: opacity 0.3s ease;
     pointer-events: none;
   }
   .gradient-border:hover::before { opacity: 1; }
 
-  /* Supergraphic — angular flame motif */
-  .supergraphic {
-    background-image:
-      linear-gradient(135deg, transparent 48%, rgba(255,255,255,0.04) 49%, rgba(255,255,255,0.04) 51%, transparent 52%),
-      linear-gradient(45deg, transparent 48%, rgba(110,59,255,0.05) 49%, rgba(110,59,255,0.05) 51%, transparent 52%);
-    background-size: 80px 80px, 80px 80px;
+  /* Generic hover-pop for any interactive element with a border or icon container.
+     Apply via the `hover-pop` utility class. */
+  .hover-pop {
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+                border-color 0.3s ease,
+                background-color 0.3s ease;
+    will-change: transform;
+  }
+  .hover-pop:hover {
+    transform: translateY(-2px) scale(1.04);
   }
 
   .glass {
@@ -175,4 +233,94 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
+
+  /* === Floating ember orbs (Supergraphic) === */
+  .ember {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    opacity: 0.55;
+    will-change: transform, opacity;
+    mix-blend-mode: screen;
+  }
+  .ember-a {
+    width: 420px; height: 420px;
+    top: -120px; left: -80px;
+    background: radial-gradient(circle, rgba(42, 18, 117, 0.85), transparent 70%);
+    animation: ember-float-a 22s ease-in-out infinite alternate;
+  }
+  .ember-b {
+    width: 360px; height: 360px;
+    top: 40%; left: 65%;
+    background: radial-gradient(circle, rgba(196, 32, 32, 0.55), transparent 70%);
+    animation: ember-float-b 26s ease-in-out infinite alternate;
+  }
+  .ember-c {
+    width: 280px; height: 280px;
+    top: 70%; left: 10%;
+    background: radial-gradient(circle, rgba(248, 167, 50, 0.35), transparent 70%);
+    animation: ember-float-c 30s ease-in-out infinite alternate;
+  }
+  .ember-d {
+    width: 320px; height: 320px;
+    top: -60px; right: -60px;
+    background: radial-gradient(circle, rgba(196, 32, 32, 0.4), transparent 70%);
+    animation: ember-float-d 24s ease-in-out infinite alternate;
+  }
+  .ember-e {
+    width: 240px; height: 240px;
+    bottom: -80px; left: 45%;
+    background: radial-gradient(circle, rgba(42, 18, 117, 0.7), transparent 70%);
+    animation: ember-float-e 28s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes ember-float-a {
+  0%   { transform: translate3d(0, 0, 0) scale(1);     opacity: 0.45; }
+  100% { transform: translate3d(80px, 60px, 0) scale(1.15); opacity: 0.65; }
+}
+@keyframes ember-float-b {
+  0%   { transform: translate3d(0, 0, 0) scale(1);     opacity: 0.4; }
+  100% { transform: translate3d(-100px, -50px, 0) scale(1.1); opacity: 0.6; }
+}
+@keyframes ember-float-c {
+  0%   { transform: translate3d(0, 0, 0) scale(0.9);   opacity: 0.3; }
+  100% { transform: translate3d(60px, -80px, 0) scale(1.1); opacity: 0.55; }
+}
+@keyframes ember-float-d {
+  0%   { transform: translate3d(0, 0, 0) scale(1);     opacity: 0.35; }
+  100% { transform: translate3d(-70px, 90px, 0) scale(1.2); opacity: 0.55; }
+}
+@keyframes ember-float-e {
+  0%   { transform: translate3d(0, 0, 0) scale(1);     opacity: 0.4; }
+  100% { transform: translate3d(50px, -60px, 0) scale(1.15); opacity: 0.6; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ember { animation: none !important; }
+}
+
+/* Auto-scrolling marquee for clip showcase */
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+}
+
+.marquee .marquee-track {
+  animation: marquee-scroll 60s linear infinite;
+  will-change: transform;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee .marquee-track { animation: none; }
 }

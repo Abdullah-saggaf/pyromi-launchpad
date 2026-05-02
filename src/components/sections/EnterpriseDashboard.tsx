@@ -39,7 +39,7 @@ export function EnterpriseDashboard() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
-            <p className="text-xs uppercase tracking-[0.18em] text-solargold">Enterprise</p>
+            <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Enterprise</p>
             <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
               Built for teams that <span className="text-pyromi">ship at scale.</span>
             </h2>
@@ -62,7 +62,7 @@ export function EnterpriseDashboard() {
                     </span>
                     <div>
                       <p className="font-medium text-smoke">{b.t}</p>
-                      <p className="text-sm text-smoke/55">{b.d}</p>
+                      <p className="text-sm text-smoke/80">{b.d}</p>
                     </div>
                   </li>
                 );
@@ -83,7 +83,7 @@ export function EnterpriseDashboard() {
             className="gradient-border relative rounded-2xl bg-charcoal/90 p-4"
           >
             <div className="rounded-xl border border-white/5 bg-obsidian/80 p-5">
-              <div className="mb-4 flex items-center justify-between text-xs text-smoke/50">
+              <div className="mb-4 flex items-center justify-between text-xs text-smoke/75">
                 <span>Pyromi · Admin overview</span>
                 <span className="rounded-full bg-emerald-500/15 px-2 py-0.5 text-emerald-400">Live</span>
               </div>
@@ -91,7 +91,7 @@ export function EnterpriseDashboard() {
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                 {kpis.map((k) => (
                   <div key={k.l} className="rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                    <div className="text-[10px] uppercase tracking-widest text-smoke/40">{k.l}</div>
+                    <div className="text-[10px] uppercase tracking-widest text-smoke/75">{k.l}</div>
                     <div className="mt-1 font-display text-xl font-extrabold text-pyromi">{k.v}</div>
                   </div>
                 ))}
@@ -99,7 +99,7 @@ export function EnterpriseDashboard() {
 
               <div className="mt-4 grid gap-3 lg:grid-cols-[1.4fr_1fr]">
                 <div className="rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                  <div className="mb-1 text-[11px] text-smoke/50">Clips published / week</div>
+                  <div className="mb-1 text-[11px] text-smoke/75">Clips published / week</div>
                   <div className="h-36">
                     <ResponsiveContainer width="100%" height="100%">
                       <AreaChart data={weekly}>
@@ -111,21 +111,27 @@ export function EnterpriseDashboard() {
                         </defs>
                         <XAxis dataKey="w" stroke="#666" fontSize={10} tickLine={false} axisLine={false} />
                         <YAxis hide />
-                        <Tooltip contentStyle={{ background: "#14161E", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, fontSize: 12 }} />
+                        <Tooltip
+                          cursor={{ stroke: "rgba(110,59,255,0.35)", strokeWidth: 1, fill: "rgba(110,59,255,0.08)" }}
+                          contentStyle={{ background: "#14161E", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, fontSize: 12 }}
+                        />
                         <Area type="monotone" dataKey="clips" stroke="#6E3BFF" strokeWidth={2} fill="url(#gpur)" />
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>
                 </div>
                 <div className="rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                  <div className="mb-1 text-[11px] text-smoke/50">Content mix</div>
+                  <div className="mb-1 text-[11px] text-smoke/75">Content mix</div>
                   <div className="h-36">
                     <ResponsiveContainer width="100%" height="100%">
                       <PieChart>
                         <Pie data={mix} dataKey="value" innerRadius={32} outerRadius={56} paddingAngle={3} stroke="none">
                           {mix.map((m) => <Cell key={m.name} fill={m.color} />)}
                         </Pie>
-                        <Tooltip contentStyle={{ background: "#14161E", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, fontSize: 12 }} />
+                        <Tooltip
+                          cursor={{ fill: "transparent" }}
+                          contentStyle={{ background: "#14161E", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, fontSize: 12 }}
+                        />
                       </PieChart>
                     </ResponsiveContainer>
                   </div>
@@ -133,13 +139,16 @@ export function EnterpriseDashboard() {
               </div>
 
               <div className="mt-3 rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                <div className="mb-1 text-[11px] text-smoke/50">Output by member</div>
+                <div className="mb-1 text-[11px] text-smoke/75">Output by member</div>
                 <div className="h-32">
                   <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={team}>
                       <XAxis dataKey="n" stroke="#666" fontSize={10} tickLine={false} axisLine={false} />
                       <YAxis hide />
-                      <Tooltip contentStyle={{ background: "#14161E", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, fontSize: 12 }} />
+                        <Tooltip
+                          cursor={{ fill: "rgba(110,59,255,0.10)", radius: 6 }}
+                          contentStyle={{ background: "#14161E", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 8, fontSize: 12 }}
+                        />
                       <Bar dataKey="c" fill="#FFB627" radius={[4, 4, 0, 0]} />
                     </BarChart>
                   </ResponsiveContainer>

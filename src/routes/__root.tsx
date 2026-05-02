@@ -75,7 +75,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-obsidian text-smoke">
+      <body className="text-smoke">
         {children}
         <Scripts />
       </body>
@@ -85,7 +85,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   return (
-    <div className="flex min-h-screen flex-col bg-obsidian">
+    <div className="relative z-10 flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1">
         <Outlet />

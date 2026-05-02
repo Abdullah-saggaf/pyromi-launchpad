@@ -16,7 +16,7 @@ export function Workflow() {
     <Section className="bg-charcoal/40">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Workflow</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Workflow</p>
           <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
             Input → <span className="text-pyromi">Ignition</span> → Output.
           </h2>
@@ -35,16 +35,16 @@ export function Workflow() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.06 }}
-                  className="relative text-center"
+                  className="hover-pop relative text-center"
                 >
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-obsidian text-techpurple shadow-[0_8px_24px_-8px_rgba(110,59,255,0.5)]">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-obsidian text-techpurple shadow-[0_8px_24px_-8px_rgba(110,59,255,0.5)] transition-all duration-300 group-hover:scale-110">
                     <Icon size={18} />
                   </div>
-                  <div className="mt-1 text-[10px] font-semibold tracking-widest text-smoke/40">
+                  <div className="mt-1 text-[10px] font-semibold tracking-widest text-smoke/75">
                     STEP {i + 1}
                   </div>
                   <h3 className="mt-2 font-display text-sm font-bold text-smoke">{s.title}</h3>
-                  <p className="mt-1 text-xs text-smoke/55">{s.sub}</p>
+                  <p className="mt-1 text-xs text-smoke/80">{s.sub}</p>
                 </motion.div>
               );
             })}

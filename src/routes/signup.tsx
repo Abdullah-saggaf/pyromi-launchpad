@@ -36,7 +36,7 @@ function SignupPage() {
         {link && (
           <div className="gradient-border mt-8 rounded-xl bg-charcoal/80 p-4 text-sm text-smoke/80">
             ✦ We saved your video — finish signup to process it.
-            <div className="mt-1 truncate text-xs text-smoke/50">{link}</div>
+            <div className="mt-1 truncate text-xs text-smoke/75">{link}</div>
           </div>
         )}
 
@@ -48,7 +48,7 @@ function SignupPage() {
           </GradientButton>
         </form>
 
-        <p className="mt-6 text-center text-sm text-smoke/55">
+        <p className="mt-6 text-center text-sm text-smoke/80">
           Already have an account? <Link to="/login" className="text-techpurple hover:underline">Log in</Link>
         </p>
       </Container>
@@ -57,4 +57,4 @@ function SignupPage() {
 }
 
 const inp =
-  "w-full rounded-xl border border-white/10 bg-charcoal/80 px-4 py-3 text-sm text-smoke placeholder:text-smoke/40 focus:border-techpurple/60 focus:outline-none";
+  "w-full rounded-xl border border-white/10 bg-charcoal/80 px-4 py-3 text-sm text-smoke placeholder:text-smoke/50 focus:border-techpurple/60 focus:outline-none";

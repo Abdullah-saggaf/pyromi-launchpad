@@ -27,7 +27,7 @@ function LoginPage() {
           <input className={inp} placeholder="Password" type="password" />
           <GradientButton type="button" size="lg" className="w-full">Log in</GradientButton>
         </form>
-        <p className="mt-6 text-center text-sm text-smoke/55">
+        <p className="mt-6 text-center text-sm text-smoke/80">
           New here? <Link to="/signup" className="text-techpurple hover:underline">Create an account</Link>
         </p>
       </Container>
@@ -36,4 +36,4 @@ function LoginPage() {
 }
 
 const inp =
-  "w-full rounded-xl border border-white/10 bg-charcoal/80 px-4 py-3 text-sm text-smoke placeholder:text-smoke/40 focus:border-techpurple/60 focus:outline-none";
+  "w-full rounded-xl border border-white/10 bg-charcoal/80 px-4 py-3 text-sm text-smoke placeholder:text-smoke/50 focus:border-techpurple/60 focus:outline-none";

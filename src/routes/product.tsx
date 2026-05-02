@@ -25,7 +25,7 @@ function ProductPage() {
       <Section className="relative overflow-hidden pt-16">
         <Supergraphic className="opacity-[0.05]" />
         <Container className="relative text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Product</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Product</p>
           <h1 className="mx-auto mt-3 max-w-3xl font-display text-4xl font-extrabold text-smoke sm:text-6xl">
             One platform from <span className="text-pyromi">raw footage to published clip.</span>
           </h1>

@@ -22,7 +22,7 @@ export function Testimonials() {
     <Section>
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Proof</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Proof</p>
           <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
             Teams that ship more, <span className="text-pyromi">say it best.</span>
           </h2>
@@ -46,7 +46,7 @@ export function Testimonials() {
                 <div className="h-9 w-9 rounded-full bg-pyromi" />
                 <div>
                   <div className="text-sm font-semibold text-smoke">{q.n}</div>
-                  <div className="text-xs text-smoke/50">{q.r}</div>
+                  <div className="text-xs text-smoke/75">{q.r}</div>
                 </div>
               </figcaption>
             </motion.figure>

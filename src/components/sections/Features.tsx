@@ -18,7 +18,7 @@ export function Features() {
     <Section className="bg-charcoal/40">
       <Container>
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.18em] text-techpurple">Features</p>
+          <p className="text-xs uppercase tracking-[0.18em] text-sparkred">Features</p>
           <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
             Built to <span className="text-pyromi">support the outcome.</span>
           </h2>
