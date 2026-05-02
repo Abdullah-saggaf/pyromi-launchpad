@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useNavigate, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Sparkles, Play, ArrowRight, Wand2, LayoutGrid, Captions } from "lucide-react";
+import { Sparkles, Play, ArrowRight } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 import { GradientButton } from "@/components/brand/GradientButton";
 import { Supergraphic } from "@/components/brand/Supergraphic";
+import { HeroVideo } from "@/components/brand/HeroVideo";
 
 const audiences = [
   { id: "agencies", label: "For Agencies", helper: "Turn client footage into more deliverables." },
@@ -105,82 +106,7 @@ export function Hero() {
           <p className="mt-3 text-center text-xs text-smoke/75">{helper}</p>
         </motion.form>
 
-        {/* Product mockup */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.3 }}
-          className="relative mx-auto mt-16 max-w-5xl"
-        >
-          <div className="gradient-border relative overflow-hidden rounded-2xl bg-charcoal/90 p-3 shadow-[0_40px_120px_-40px_rgba(110,59,255,0.6)]">
-            <div className="rounded-xl border border-white/5 bg-obsidian/80 p-4">
-              {/* fake window controls */}
-              <div className="mb-4 flex items-center gap-1.5">
-                <span className="h-2.5 w-2.5 rounded-full bg-sparkred/80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-solargold/80" />
-                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/80" />
-                <span className="ml-3 text-[11px] text-smoke/75">pyromi.app · session-247.mp4</span>
-              </div>
-
-              <div className="grid gap-3 lg:grid-cols-[1.5fr_1fr]">
-                {/* Timeline */}
-                <div className="rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                  <div className="flex items-center justify-between text-[11px] text-smoke/75">
-                    <span className="inline-flex items-center gap-1.5">
-                      <Wand2 size={12} className="text-techpurple" /> AI moments detected
-                    </span>
-                    <span>14 highlights</span>
-                  </div>
-                  <div className="mt-3 h-24 rounded-md bg-obsidian/60 p-2">
-                    <div className="relative h-full w-full overflow-hidden rounded">
-                      {/* waveform */}
-                      <div className="absolute inset-0 flex items-end gap-[2px] px-1">
-                        {Array.from({ length: 80 }).map((_, i) => (
-                          <div
-                            key={i}
-                            className="flex-1 rounded-sm bg-pyromi"
-                            style={{ height: `${20 + Math.abs(Math.sin(i / 3)) * 70}%`, opacity: 0.5 }}
-                          />
-                        ))}
-                      </div>
-                      {/* highlight markers */}
-                      {[15, 32, 48, 67].map((p) => (
-                        <div
-                          key={p}
-                          className="absolute top-0 h-full w-[3px] bg-solargold"
-                          style={{ left: `${p}%` }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="mt-3 flex items-center gap-2 text-[11px] text-smoke/75">
-                    <Captions size={12} /> Auto-captions · 40 languages
-                    <span className="ml-auto rounded bg-white/5 px-2 py-0.5">2:47:13</span>
-                  </div>
-                </div>
-
-                {/* Clip grid */}
-                <div className="rounded-lg border border-white/5 bg-charcoal/60 p-3">
-                  <div className="mb-2 flex items-center gap-1.5 text-[11px] text-smoke/75">
-                    <LayoutGrid size={12} /> Generated clips
-                  </div>
-                  <div className="grid grid-cols-3 gap-2">
-                    {Array.from({ length: 6 }).map((_, i) => (
-                      <div
-                        key={i}
-                        className="aspect-[9/16] rounded-md bg-pyromi-soft p-1.5"
-                      >
-                        <div className="flex h-full w-full items-end rounded-sm bg-obsidian/40 p-1">
-                          <span className="text-[8px] text-smoke/80">Clip {i + 1}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        <HeroVideo />
       </Container>
     </Section>
   );

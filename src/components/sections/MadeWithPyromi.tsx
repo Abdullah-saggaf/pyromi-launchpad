@@ -1,24 +1,65 @@
-import { useState } from "react";
-import { Play } from "lucide-react";
+import { useMemo, useState } from "react";
 import { Container, Section } from "@/components/brand/Container";
+import { OutputCard } from "@/components/brand/OutputCard";
 
 const filters = ["All", "Podcast", "Stream", "Webinar", "Interview", "Long-form"];
 
 const clips = [
-  { tag: "Podcast", source: "From a 2h47 podcast → 14 clips", title: "The 1 reframe that 10×'d output", color: "from-techpurple to-sparkred" },
-  { tag: "Stream", source: "From a 6h Twitch VOD → 22 clips", title: "Clutch moment, perfectly cut", color: "from-deepblue to-techpurple" },
-  { tag: "Webinar", source: "From a 90-min webinar → 9 clips", title: "The AI workflow most teams miss", color: "from-sparkred to-solargold" },
-  { tag: "Interview", source: "From a 45-min interview → 7 clips", title: "Founder on shipping faster", color: "from-techpurple to-solargold" },
-  { tag: "Long-form", source: "From a 3h essay → 18 clips", title: "Why volume beats polish", color: "from-deepblue to-sparkred" },
-  { tag: "Podcast", source: "From a 1h53 episode → 11 clips", title: "Our biggest workflow unlock", color: "from-techpurple to-sparkred" },
-  { tag: "Stream", source: "From a 4h stream → 16 clips", title: "Speedrun PB, captioned + framed", color: "from-deepblue to-techpurple" },
-];
+  {
+    tag: "Podcast",
+    duration: "9:16",
+    source: "From a 2h47 podcast → 14 clips",
+    title: "The 1 reframe that 10×'d output",
+    image: "/assets/cards/Card_Elon_Podcast.png",
+    video: "/assets/cards/Video_Elon_Podcast.mp4",
+  },
+  {
+    tag: "Stream",
+    duration: "9:16",
+    source: "From a 6h Twitch VOD → 22 clips",
+    title: "Clutch moment, perfectly cut",
+    image: "/assets/cards/Card_Fifa26_Game.png",
+    video: "/assets/cards/Video_Fifa26_Game.mp4",
+  },
+  {
+    tag: "Webinar",
+    duration: "9:16",
+    source: "From a 90-min webinar → 9 clips",
+    title: "The AI workflow most teams miss",
+    image: "/assets/cards/Card_JackMa_Webinar.png",
+    video: "/assets/cards/Video_JackMa_Webinar.mp4",
+  },
+  {
+    tag: "Interview",
+    duration: "9:16",
+    source: "From a 45-min interview → 7 clips",
+    title: "Founder on shipping faster",
+    image: "/assets/cards/Card_Naval_Interview.png",
+    video: "/assets/cards/video_naval_interview.mp4",
+  },
+  {
+    tag: "Long-form",
+    duration: "9:16",
+    source: "From a 3h essay → 18 clips",
+    title: "Why volume beats polish",
+    image: "/assets/cards/Card_Fallout_LongForm.png",
+    video: "/assets/cards/Video_Fallout_LongForm.mp4",
+  },
+  {
+    tag: "Podcast",
+    duration: "9:16",
+    source: "From a 1h53 episode → 11 clips",
+    title: "Our biggest workflow unlock",
+    image: "/assets/cards/Card_MrBeast_TalkingHead.png",
+    video: "/assets/cards/Video_MrBeast_TalkingHead.mp4",
+  },
+] as const;
 
 export function MadeWithPyromi() {
   const [filter, setFilter] = useState("All");
   const visible = filter === "All" ? clips : clips.filter((c) => c.tag === filter);
-  // Duplicate the list so the marquee can loop seamlessly
-  const loop = [...visible, ...visible];
+  const loop = useMemo(() => [...visible, ...visible], [visible]);
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
     <Section>
@@ -51,33 +92,21 @@ export function MadeWithPyromi() {
           </div>
         </div>
 
-        <div
-          className="marquee mt-10 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-          style={{ scrollSnapType: "none" }}
-        >
+        <div className="marquee mt-10 overflow-x-auto overflow-y-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           <div className="marquee-track flex w-max gap-5">
             {loop.map((c, i) => (
-              <article
+              <OutputCard
                 key={c.title + i}
-                className="group relative w-[220px] shrink-0 sm:w-[260px]"
-              >
-                <div className={`gradient-border relative aspect-[9/16] overflow-hidden rounded-2xl bg-gradient-to-br ${c.color}`}>
-                  <div className="absolute inset-0 bg-obsidian/30" />
-                  <div className="absolute inset-x-3 top-3 flex items-center justify-between text-[10px] uppercase tracking-widest text-white/80">
-                    <span className="rounded-full bg-black/40 px-2 py-0.5 backdrop-blur">{c.tag}</span>
-                    <span>9:16</span>
-                  </div>
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 backdrop-blur transition group-hover:scale-110 group-hover:bg-white/20">
-                      <Play size={18} className="ml-0.5 text-white" />
-                    </div>
-                  </div>
-                  <div className="absolute inset-x-3 bottom-3">
-                    <p className="text-sm font-semibold leading-tight text-white">{c.title}</p>
-                  </div>
-                </div>
-                <p className="mt-3 text-xs text-smoke/75">{c.source}</p>
-              </article>
+                active={activeIndex === i}
+                tag={c.tag}
+                duration={c.duration}
+                source={c.source}
+                title={c.title}
+                image={c.image}
+                video={c.video}
+                onActivate={() => setActiveIndex(i)}
+                onDeactivate={() => setActiveIndex((prev) => (prev === i ? null : prev))}
+              />
             ))}
           </div>
         </div>
