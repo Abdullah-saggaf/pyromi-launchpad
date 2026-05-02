@@ -24,7 +24,10 @@ export function Workflow() {
         </div>
 
         <div className="relative mt-14">
-          <div className="absolute left-0 right-0 top-6 hidden h-px bg-pyromi opacity-40 lg:block" />
+          <div
+            className="pointer-events-none absolute left-0 right-0 top-6 hidden h-px bg-pyromi opacity-40 lg:block"
+            aria-hidden
+          />
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-6">
             {steps.map((s, i) => {
               const Icon = s.icon;
@@ -37,7 +40,7 @@ export function Workflow() {
                   transition={{ duration: 0.4, delay: i * 0.06 }}
                   className="relative text-center"
                 >
-                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-obsidian text-techpurple shadow-[0_8px_24px_-8px_rgba(110,59,255,0.5)]">
+                  <div className="hover-pop mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-white/10 bg-obsidian text-techpurple shadow-[0_8px_24px_-8px_rgba(110,59,255,0.5)] hover:border-white/40 hover:shadow-[0_14px_36px_-10px_rgba(110,59,255,0.7)]">
                     <Icon size={18} />
                   </div>
                   <div className="mt-1 text-[10px] font-semibold tracking-widest text-smoke/40">

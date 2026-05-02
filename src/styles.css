@@ -41,6 +41,7 @@
   --color-charcoal: var(--charcoal);
   --color-smoke: var(--smoke);
   --color-deepblue: var(--deepblue);
+  --color-deepviolet: var(--deepviolet);
   --color-techpurple: var(--techpurple);
   --color-sparkred: var(--sparkred);
   --color-solargold: var(--solargold);
@@ -52,14 +53,15 @@
 :root {
   --radius: 0.75rem;
 
-  /* Pyromi GSM */
-  --obsidian: oklch(0.13 0.02 270);          /* #0A0B10 */
-  --charcoal: oklch(0.18 0.02 270);          /* #14161E */
-  --smoke: oklch(0.97 0.005 90);             /* #F6F6F4 */
-  --deepblue: oklch(0.32 0.18 268);          /* #1E2A78 */
-  --techpurple: oklch(0.55 0.27 290);        /* #6E3BFF */
-  --sparkred: oklch(0.65 0.24 25);           /* #FF3B2F */
-  --solargold: oklch(0.82 0.16 75);          /* #FFB627 */
+  /* Pyromi GSM — Tech Fire */
+  --obsidian: oklch(0.07 0.015 280);          /* #050508 true void */
+  --charcoal: oklch(0.16 0.022 280);          /* lifted void surface */
+  --smoke: oklch(0.97 0.005 90);              /* #F6F6F4 */
+  --deepviolet: oklch(0.30 0.20 285);         /* #2A1275 */
+  --deepblue: oklch(0.30 0.20 285);           /* alias */
+  --techpurple: oklch(0.62 0.28 295);         /* brightened violet */
+  --sparkred: oklch(0.55 0.24 27);            /* #C42020 true crimson */
+  --solargold: oklch(0.78 0.16 70);           /* #F8A732 warm gold */
 
   /* Theme = dark by default */
   --background: var(--obsidian);
@@ -70,11 +72,11 @@
   --popover-foreground: oklch(0.97 0.005 90);
   --primary: var(--techpurple);
   --primary-foreground: oklch(0.99 0 0);
-  --secondary: oklch(0.22 0.02 270);
+  --secondary: oklch(0.20 0.025 280);
   --secondary-foreground: oklch(0.97 0.005 90);
-  --muted: oklch(0.22 0.02 270);
-  --muted-foreground: oklch(0.7 0.02 270);
-  --accent: oklch(0.25 0.04 280);
+  --muted: oklch(0.20 0.025 280);
+  --muted-foreground: oklch(0.7 0.02 280);
+  --accent: oklch(0.24 0.04 285);
   --accent-foreground: oklch(0.97 0.005 90);
   --destructive: var(--sparkred);
   --destructive-foreground: oklch(0.99 0 0);
@@ -84,20 +86,20 @@
 
   --gradient-pyromi: linear-gradient(
     135deg,
-    #1E2A78 0%,
+    #2A1275 0%,
     #6E3BFF 35%,
-    #FF3B2F 70%,
-    #FFB627 100%
+    #C42020 70%,
+    #F8A732 100%
   );
   --gradient-pyromi-soft: linear-gradient(
     135deg,
-    rgba(30, 42, 120, 0.5) 0%,
+    rgba(42, 18, 117, 0.5) 0%,
     rgba(110, 59, 255, 0.45) 35%,
-    rgba(255, 59, 47, 0.4) 70%,
-    rgba(255, 182, 39, 0.45) 100%
+    rgba(196, 32, 32, 0.4) 70%,
+    rgba(248, 167, 50, 0.45) 100%
   );
   --shadow-glow: 0 30px 80px -30px rgba(110, 59, 255, 0.55),
-                 0 10px 50px -20px rgba(255, 59, 47, 0.35);
+                 0 10px 50px -20px rgba(196, 32, 32, 0.35);
 }
 
 @layer base {
@@ -110,6 +112,34 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
+  body {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  /* Ambient drifting multi-blob radial gradient */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: -2;
+    background:
+      radial-gradient(ellipse 40% 35% at 18% 22%, rgba(110, 59, 255, 0.22), transparent 60%),
+      radial-gradient(ellipse 35% 30% at 82% 30%, rgba(196, 32, 32, 0.16), transparent 60%),
+      radial-gradient(ellipse 45% 35% at 70% 78%, rgba(248, 167, 50, 0.14), transparent 60%),
+      radial-gradient(ellipse 35% 30% at 25% 80%, rgba(42, 18, 117, 0.30), transparent 60%);
+    animation: pyromi-drift 28s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  /* Vignette */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(5, 5, 8, 0.6) 100%);
+    pointer-events: none;
+  }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
@@ -118,6 +148,22 @@
     background: rgba(110, 59, 255, 0.4);
     color: #fff;
   }
+}
+
+@keyframes pyromi-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(2%, -3%, 0) scale(1.08); }
+  100% { transform: translate3d(-2%, 2%, 0) scale(1.04); }
+}
+
+@keyframes ember-float {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.55; }
+  50%      { transform: translate3d(3%, -4%, 0) scale(1.15); opacity: 0.85; }
+}
+
+@keyframes marquee-x {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 @layer utilities {
@@ -139,10 +185,12 @@
   }
   .glow-pyromi { box-shadow: var(--shadow-glow); }
 
-  /* Premium 1px gradient border using mask trick */
+  /* Premium 1px gradient border using mask trick — corners filled */
   .gradient-border {
     position: relative;
     isolation: isolate;
+    transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.45s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .gradient-border::before {
     content: "";
@@ -156,23 +204,71 @@
       linear-gradient(#000 0 0);
     -webkit-mask-composite: xor;
             mask-composite: exclude;
-    opacity: 0.3;
-    transition: opacity 0.3s ease;
+    opacity: 0.35;
+    transition: opacity 0.4s ease;
     pointer-events: none;
+  }
+  .gradient-border:hover {
+    transform: translateY(-4px) scale(1.015);
+    box-shadow: 0 30px 60px -25px rgba(110, 59, 255, 0.5),
+                0 10px 30px -15px rgba(196, 32, 32, 0.3);
   }
   .gradient-border:hover::before { opacity: 1; }
 
-  /* Supergraphic — angular flame motif */
-  .supergraphic {
-    background-image:
-      linear-gradient(135deg, transparent 48%, rgba(255,255,255,0.04) 49%, rgba(255,255,255,0.04) 51%, transparent 52%),
-      linear-gradient(45deg, transparent 48%, rgba(110,59,255,0.05) 49%, rgba(110,59,255,0.05) 51%, transparent 52%);
-    background-size: 80px 80px, 80px 80px;
+  /* Generic hover-pop — for bordered surfaces and icons */
+  .hover-pop {
+    transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                box-shadow 0.35s cubic-bezier(0.2, 0.8, 0.2, 1),
+                color 0.25s ease,
+                border-color 0.25s ease;
+    will-change: transform;
+  }
+  .hover-pop:hover {
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  /* Floating ember orbs */
+  .ember {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(60px);
+    mix-blend-mode: screen;
+    pointer-events: none;
+    opacity: 0.6;
+    animation: ember-float 14s ease-in-out infinite;
+  }
+  .ember-a { top: 10%;  left: 8%;   width: 280px; height: 280px; background: rgba(110, 59, 255, 0.55); animation-delay: 0s; }
+  .ember-b { top: 15%;  right: 6%;  width: 220px; height: 220px; background: rgba(196, 32, 32, 0.45); animation-delay: -3s; animation-duration: 18s; }
+  .ember-c { bottom: 18%; left: 14%; width: 320px; height: 320px; background: rgba(42, 18, 117, 0.6); animation-delay: -6s; animation-duration: 22s; }
+  .ember-d { bottom: 8%;  right: 18%; width: 260px; height: 260px; background: rgba(248, 167, 50, 0.35); animation-delay: -9s; animation-duration: 16s; }
+  .ember-e { top: 50%;   left: 45%;  width: 200px; height: 200px; background: rgba(110, 59, 255, 0.35); animation-delay: -12s; animation-duration: 20s; }
+
+  /* Marquee — 60s linear infinite, pause on hover/focus */
+  .marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee-x 60s linear infinite;
+  }
+  .marquee-wrap:hover .marquee,
+  .marquee-wrap:focus-within .marquee {
+    animation-play-state: paused;
   }
 
   .glass {
     background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body::before,
+    .ember,
+    .marquee {
+      animation: none !important;
+    }
+    .gradient-border:hover,
+    .hover-pop:hover {
+      transform: none !important;
+    }
   }
 }

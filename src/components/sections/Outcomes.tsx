@@ -48,9 +48,14 @@ export function Outcomes() {
           {benefits.map((b) => {
             const Icon = b.icon;
             return (
-              <div key={b.t} className="rounded-2xl border border-white/5 p-6">
-                <Icon size={20} className="text-solargold" />
-                <h3 className="mt-3 font-display font-bold text-smoke">{b.t}</h3>
+              <div
+                key={b.t}
+                className="gradient-border group rounded-2xl bg-charcoal/60 p-6"
+              >
+                <div className="hover-pop inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 text-solargold group-hover:border-solargold/60 group-hover:text-solargold">
+                  <Icon size={18} />
+                </div>
+                <h3 className="mt-4 font-display font-bold text-smoke">{b.t}</h3>
                 <p className="mt-1.5 text-sm text-smoke/60">{b.d}</p>
               </div>
             );
