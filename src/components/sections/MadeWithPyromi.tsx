@@ -96,7 +96,7 @@ export function MadeWithPyromi() {
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [autoEnabled, isInteracting, items.length]);
+    }, [autoEnabled, isInteracting]);
 
   return (
     <Section>
