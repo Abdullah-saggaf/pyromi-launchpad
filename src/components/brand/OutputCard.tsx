@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 interface OutputCardProps {
   active: boolean;
-  tag: string;
   duration: string;
   source: string;
   title: string;
@@ -15,7 +14,6 @@ interface OutputCardProps {
 
 export function OutputCard({
   active,
-  tag,
   duration,
   source,
   title,
@@ -82,12 +80,6 @@ export function OutputCard({
         />
 
         <div className="absolute inset-0 z-30 flex flex-col">
-          <div className="flex items-center justify-between p-3 text-[10px] uppercase tracking-widest">
-            <span className="rounded-full bg-black/50 px-2 py-0.5 text-white/80">
-              {tag}
-            </span>
-          </div>
-
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian/85 via-obsidian/35 to-transparent p-3 pt-10">
             <p className="text-sm font-semibold leading-tight text-white">{title}</p>
           </div>

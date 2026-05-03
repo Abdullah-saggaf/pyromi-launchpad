@@ -82,7 +82,6 @@ export function MadeWithPyromi() {
       >
         <OutputCard
           active={activeIndex === i}
-          tag={c.tag}
           duration={c.duration}
           source={c.source}
           title={c.title}
