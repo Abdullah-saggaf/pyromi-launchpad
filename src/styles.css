@@ -228,6 +228,37 @@
     transform: translateY(-2px) scale(1.04);
   }
 
+  .output-track {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+  }
+
+  .output-track--all {
+    animation: scroll-outputs 48s linear infinite;
+    will-change: transform;
+  }
+
+  .output-track--paused {
+    animation-play-state: paused;
+  }
+
+  .output-track > * {
+    flex: 0 0 auto;
+  }
+
+  .output-track > [aria-hidden="true"] {
+    pointer-events: none;
+  }
+
+  @keyframes scroll-outputs {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
   .glass {
     background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
     backdrop-filter: blur(12px);

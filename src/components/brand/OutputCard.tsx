@@ -81,21 +81,19 @@ export function OutputCard({
           transition={{ duration: 0.28, ease: "easeOut" }}
         />
 
-        <div className="absolute inset-0 z-30 flex flex-col bg-gradient-to-t from-obsidian/80 via-transparent to-transparent">
+        <div className="absolute inset-0 z-30 flex flex-col">
           <div className="flex items-center justify-between p-3 text-[10px] uppercase tracking-widest">
-            <span className="rounded-full bg-black/40 px-2 py-0.5 text-white/80 backdrop-blur">
+            <span className="rounded-full bg-black/50 px-2 py-0.5 text-white/80">
               {tag}
             </span>
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center">
             <motion.div
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 backdrop-blur transition group-hover:scale-110"
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-black/35 transition group-hover:scale-110"
               animate={{
-                backgroundColor: active
-                  ? "rgba(255, 255, 255, 0)"
-                  : "rgba(255, 255, 255, 0.1)",
-                scale: active ? 0.8 : 1,
+                backgroundColor: active ? "rgba(0, 0, 0, 0)" : "rgba(0, 0, 0, 0.35)",
+                scale: active ? 0.85 : 1,
               }}
               transition={{ duration: 0.2 }}
             >
@@ -110,7 +108,7 @@ export function OutputCard({
             </motion.div>
           </div>
 
-          <div className="absolute inset-x-0 bottom-0 p-3">
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian/85 via-obsidian/35 to-transparent p-3 pt-10">
             <p className="text-sm font-semibold leading-tight text-white">{title}</p>
           </div>
         </div>
