@@ -1,5 +1,0 @@
-* text=auto
-*.png -diff -merge -text
-*.mp4 -diff -merge -text
-*.jpg -diff -merge -text
-*.jpeg -diff -merge -text
