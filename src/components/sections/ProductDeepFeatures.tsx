@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import {
-  Search, Wand2, Captions, Music, Scissors, FileText, Repeat, Sparkles, Link2, AudioLines, ShieldCheck,
+  Search, Wand2, Captions, Music, Repeat, Sparkles, Link2, AudioLines, ShieldCheck,
 } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 
@@ -17,7 +17,7 @@ const deepFeatures = [
   },
   {
     icon: Captions,
-    t: "Auto-Captions in 40+ Languages",
+    t: "Auto-Captions in Any Language",
     d: "Generate on-brand animated captions with frame-accurate timing and full edit control.",
   },
   {
@@ -26,29 +26,19 @@ const deepFeatures = [
     d: "Align cuts to drops, beats, and rhythm changes automatically with frame-level precision.",
   },
   {
-    icon: Scissors,
-    t: "Remove Filler Words, Pauses, and Dead Seconds",
-    d: "Clean up awkward silences and verbal filler in one pass so your edit stays tight.",
-  },
-  {
-    icon: FileText,
-    t: "Edit the Transcript. The Video Edits Itself",
-    d: "Delete or move words in text view and Pyromi updates the timeline accordingly.",
-  },
-  {
     icon: Repeat,
     t: "Set a Rule Once. Pyromi Applies It Everywhere",
     d: "Define repeated editing rules once and apply them across your entire video automatically.",
   },
   {
     icon: Sparkles,
-    t: "2D and 3D Animations Inside Pyromi",
-    d: "Create motion graphics, animated text, and camera moves directly in the editor.",
+    t: "Create 2D Animations and Moving Graphics",
+    d: "Create animated text, motion graphics, and moving visuals directly in the editor.",
   },
   {
     icon: Link2,
-    t: "Paste a YouTube Link Into Your Project",
-    d: "Import source video or audio from links directly into your workspace and start editing.",
+    t: "Import Video or Music from YouTube",
+    d: "Paste a YouTube link and bring video or music straight into your project.",
   },
   {
     icon: AudioLines,

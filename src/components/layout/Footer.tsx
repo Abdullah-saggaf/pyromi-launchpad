@@ -9,7 +9,6 @@ const cols = [
     links: [
       { to: "/product", label: "Overview" },
       { to: "/pricing", label: "Pricing" },
-      { to: "/resources", label: "Examples" },
     ],
   },
   {
@@ -24,7 +23,6 @@ const cols = [
     title: "Company",
     links: [
       { to: "/contact", label: "Contact" },
-      { to: "/resources", label: "Blog" },
       { to: "/contact", label: "Book a demo" },
     ],
   },
@@ -47,8 +45,7 @@ export function Footer() {
           <div>
             <Logo className="h-7" />
             <p className="mt-4 max-w-xs text-sm text-smoke/60">
-              The AI Video IDE. Built for creators who don’t want to choose between fast and in
-              control.
+              The first AI that edits your timeline. Nothing locked. Always yours.
             </p>
             <div className="mt-6 flex gap-3 text-smoke/75">
               <a href="#" aria-label="X" className="hover:text-smoke"><Send size={18} /></a>

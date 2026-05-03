@@ -12,7 +12,6 @@ const nav = [
   { to: "/solutions", label: "Solutions" },
   { to: "/solutions/enterprise", label: "Enterprise" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/resources", label: "Resources" },
 ] as const;
 
 export function Navbar() {

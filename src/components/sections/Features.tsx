@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import {
-  Search, Wand2, Captions, Music, Scissors, FileText,
+  Search, Wand2, Link2, Sparkles, Captions, Music,
 } from "lucide-react";
 import { Container, Section } from "@/components/brand/Container";
 
@@ -17,24 +17,24 @@ const coreFeatures = [
     d: "Describe the edit you want and Pyromi builds the first cut on your timeline.",
   },
   {
+    icon: Link2,
+    t: "Import from YouTube",
+    d: "Paste a YouTube link and bring video or music straight into your project.",
+  },
+  {
+    icon: Sparkles,
+    t: "Create 2D animations",
+    d: "Create animated text, motion graphics, and moving visuals without opening another app.",
+  },
+  {
     icon: Captions,
     t: "Auto-captions",
-    d: "Generate on-brand animated captions in 40+ languages, fully editable.",
+    d: "Generate on-brand animated captions in any language, fully editable.",
   },
   {
     icon: Music,
     t: "Beat sync",
-    d: "Sync cuts to music automatically with frame-accurate timing.",
-  },
-  {
-    icon: Scissors,
-    t: "Remove filler words",
-    d: "Clean up pauses, filler words, and dead air in one click.",
-  },
-  {
-    icon: FileText,
-    t: "Edit by transcript",
-    d: "Edit the video by editing text. Delete or rearrange words and the timeline updates.",
+    d: "Let Pyromi pick the music or add your own track. Every cut hits the beat automatically.",
   },
 ];
 

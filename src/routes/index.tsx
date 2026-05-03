@@ -15,19 +15,19 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Pyromi is the AI Video IDE for creators, streamers, and video teams. Search footage, build edits with AI, and keep every cut, caption, and transition fully editable.",
+          "Pyromi is the AI video editor that builds edits directly on your timeline. Search 100 hours of footage in seconds, describe what you want, and keep every cut, caption, and transition fully editable.",
       },
       { property: "og:title", content: "Pyromi — Half AI. Half you. All editable." },
       {
         property: "og:description",
         content:
-          "Pyromi is the AI Video IDE for creators, streamers, and video teams. Search footage, build edits with AI, and keep every cut, caption, and transition fully editable.",
+          "Pyromi is the AI video editor that builds edits directly on your timeline. Search 100 hours of footage in seconds, describe what you want, and keep every cut, caption, and transition fully editable.",
       },
       { name: "twitter:title", content: "Pyromi — Half AI. Half you. All editable." },
       {
         name: "twitter:description",
         content:
-          "Pyromi is the AI Video IDE for creators, streamers, and video teams. Search footage, build edits with AI, and keep every cut, caption, and transition fully editable.",
+          "Pyromi is the AI video editor that builds edits directly on your timeline. Search 100 hours of footage in seconds, describe what you want, and keep every cut, caption, and transition fully editable.",
       },
     ],
   }),

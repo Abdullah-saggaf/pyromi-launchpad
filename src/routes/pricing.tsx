@@ -27,7 +27,7 @@ const tiers = [
     n: "Studio", p: "$49", per: "/mo per editor", featured: true, checkClass: "text-solargold",
     desc: "For agencies and high-volume creators.",
     cta: "Start Studio",
-    features: ["Unlimited videos", "Up to 4h per video", "Captions (40+ languages)", "Brand kits & presets", "Team review & approvals", "Bulk export & scheduling"],
+    features: ["Unlimited videos", "Up to 4h per video", "Captions (any language)", "Brand kits & presets", "Team review & approvals", "Bulk export & scheduling"],
   },
   {
     n: "Enterprise", p: "Custom", per: "", checkClass: "text-pyromi",

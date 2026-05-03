@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as SignupRouteImport } from './routes/signup'
-import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as ProductRouteImport } from './routes/product'
 import { Route as PricingRouteImport } from './routes/pricing'
 import { Route as LoginRouteImport } from './routes/login'
@@ -30,11 +29,6 @@ const SolutionsRoute = SolutionsRouteImport.update({
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResourcesRoute = ResourcesRouteImport.update({
-  id: '/resources',
-  path: '/resources',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProductRoute = ProductRouteImport.update({
@@ -89,7 +83,6 @@ export interface FileRoutesByFullPath {
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
   '/product': typeof ProductRoute
-  '/resources': typeof ResourcesRoute
   '/signup': typeof SignupRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/agencies': typeof SolutionsAgenciesRoute
@@ -103,7 +96,6 @@ export interface FileRoutesByTo {
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
   '/product': typeof ProductRoute
-  '/resources': typeof ResourcesRoute
   '/signup': typeof SignupRoute
   '/solutions/agencies': typeof SolutionsAgenciesRoute
   '/solutions/enterprise': typeof SolutionsEnterpriseRoute
@@ -117,7 +109,6 @@ export interface FileRoutesById {
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
   '/product': typeof ProductRoute
-  '/resources': typeof ResourcesRoute
   '/signup': typeof SignupRoute
   '/solutions': typeof SolutionsRouteWithChildren
   '/solutions/agencies': typeof SolutionsAgenciesRoute
@@ -133,7 +124,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/pricing'
     | '/product'
-    | '/resources'
     | '/signup'
     | '/solutions'
     | '/solutions/agencies'
@@ -147,7 +137,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/pricing'
     | '/product'
-    | '/resources'
     | '/signup'
     | '/solutions/agencies'
     | '/solutions/enterprise'
@@ -160,7 +149,6 @@ export interface FileRouteTypes {
     | '/login'
     | '/pricing'
     | '/product'
-    | '/resources'
     | '/signup'
     | '/solutions'
     | '/solutions/agencies'
@@ -175,7 +163,6 @@ export interface RootRouteChildren {
   LoginRoute: typeof LoginRoute
   PricingRoute: typeof PricingRoute
   ProductRoute: typeof ProductRoute
-  ResourcesRoute: typeof ResourcesRoute
   SignupRoute: typeof SignupRoute
   SolutionsRoute: typeof SolutionsRouteWithChildren
 }
@@ -194,13 +181,6 @@ declare module '@tanstack/react-router' {
       path: '/signup'
       fullPath: '/signup'
       preLoaderRoute: typeof SignupRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/resources': {
-      id: '/resources'
-      path: '/resources'
-      fullPath: '/resources'
-      preLoaderRoute: typeof ResourcesRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/product': {
@@ -293,7 +273,6 @@ const rootRouteChildren: RootRouteChildren = {
   LoginRoute: LoginRoute,
   PricingRoute: PricingRoute,
   ProductRoute: ProductRoute,
-  ResourcesRoute: ResourcesRoute,
   SignupRoute: SignupRoute,
   SolutionsRoute: SolutionsRouteWithChildren,
 }

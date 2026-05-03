@@ -46,16 +46,15 @@ export function Hero() {
         >
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-smoke/80">
             <Sparkles size={12} className="text-solargold" />
-            The AI Video IDE
+            The first AI that edits your timeline. Live, not rendered.
           </span>
           <h1 className="mx-auto mt-6 max-w-5xl text-center font-display text-[36px] font-extrabold leading-[1.08] text-smoke sm:text-5xl lg:text-6xl">
-            Pyromi -Half Al. Half you. All editable.
+            Find the moment. Build the edit. Keep control.
           </h1>
           <p className="mx-auto mt-5 max-w-[650px] text-base leading-6 text-smoke/70 sm:text-lg">
             Search hours of footage by describing what happened. Pyromi builds the first cut on
             your timeline, then lets you edit every cut, caption, effect, and transition.
           </p>
-          <p className="mt-4 text-xs text-smoke/60">DEPLOY TEST - latest version</p>
         </motion.div>
 
         {/* Try box */}
@@ -80,9 +79,9 @@ export function Hero() {
             </GradientButton>
           </div>
           <div className="mt-3 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-smoke/75">
-            <Link to="/resources" className="inline-flex items-center gap-1 hover:text-smoke">
+            <button className="inline-flex items-center gap-1 hover:text-smoke" disabled>
               <Play size={12} /> Watch a Real Edit
-            </Link>
+            </button>
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2">

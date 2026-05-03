@@ -3,12 +3,12 @@ import { Upload, Brain, Scissors, Sparkles, CheckCircle2, Send } from "lucide-re
 import { Container, Section } from "@/components/brand/Container";
 
 const steps = [
-  { icon: Upload, title: "Upload Your Footage or Paste a YouTube Link", sub: "Drop a file or paste a link. Both work. Always." },
-  { icon: Brain, title: "Pyromi Reads Your Footage", sub: "Speech, faces, emotion, action — it understands your video, not just the audio." },
-  { icon: Scissors, title: "Describe the Edit You Want", sub: "Plain language. No commands. “Make it punchy with jump cuts and music drops” is enough." },
-  { icon: Sparkles, title: "AI Cleans Everything in One Pass", sub: "Captions, filler removal, beat sync — done simultaneously. Not one by one." },
-  { icon: CheckCircle2, title: "Adjust Anything on Your Timeline", sub: "This is where Pyromi beats every AI-only tool. The edit is still yours." },
-  { icon: Send, title: "Export and Ship", sub: "Export your finished edit and share it wherever your audience is." },
+  { icon: Upload, title: "Upload Your Footage or Paste a YouTube Link", sub: "Drop a file or paste a link. Both work." },
+  { icon: Brain, title: "Pyromi Reads Your Footage", sub: "Speech, faces, emotion, and action — Pyromi understands more than just audio." },
+  { icon: Scissors, title: "Describe the Edit You Want", sub: "Use plain language. No complex commands needed." },
+  { icon: Sparkles, title: "AI Builds the First Cut", sub: "Cuts, captions, transitions, and effects appear directly on your timeline." },
+  { icon: CheckCircle2, title: "Adjust Anything", sub: "Every AI-generated edit stays fully editable." },
+  { icon: Send, title: "Export and Ship", sub: "Finish the edit and share it anywhere." },
 ];
 
 export function Workflow() {
@@ -17,9 +17,9 @@ export function Workflow() {
       <Container>
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="mt-2 font-display text-3xl font-extrabold text-smoke sm:text-5xl">
-            From raw footage to finished video. Here’s what happens.
+            The first AI that edits your timeline. Here's how.
           </h2>
-          <p className="mt-3 text-smoke/60">No tutorials. No learning curve. Just describe what you want.</p>
+          <p className="mt-3 text-smoke/60">Describe what you want — watch it appear on your timeline.</p>
         </div>
 
         <div className="relative mt-14">
