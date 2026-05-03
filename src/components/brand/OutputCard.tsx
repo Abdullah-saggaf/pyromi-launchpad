@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Play } from "lucide-react";
 
 interface OutputCardProps {
   active: boolean;
@@ -67,6 +66,7 @@ export function OutputCard({
           src={video}
           className="absolute inset-0 z-10 h-full w-full object-cover transition-opacity duration-300"
           style={{ opacity: active ? 1 : 0 }}
+          controls={false}
           muted
           loop
           playsInline
@@ -86,26 +86,6 @@ export function OutputCard({
             <span className="rounded-full bg-black/50 px-2 py-0.5 text-white/80">
               {tag}
             </span>
-          </div>
-
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              className="flex h-12 w-12 items-center justify-center rounded-full bg-black/35 transition group-hover:scale-110"
-              animate={{
-                backgroundColor: active ? "rgba(0, 0, 0, 0)" : "rgba(0, 0, 0, 0.35)",
-                scale: active ? 0.85 : 1,
-              }}
-              transition={{ duration: 0.2 }}
-            >
-              <Play
-                size={18}
-                className="ml-0.5 text-white"
-                style={{
-                  opacity: active ? 0 : 1,
-                  transition: "opacity 0.2s",
-                }}
-              />
-            </motion.div>
           </div>
 
           <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-obsidian/85 via-obsidian/35 to-transparent p-3 pt-10">
