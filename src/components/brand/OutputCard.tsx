@@ -86,7 +86,6 @@ export function OutputCard({
             <span className="rounded-full bg-black/40 px-2 py-0.5 text-white/80 backdrop-blur">
               {tag}
             </span>
-            <span className="text-white/80">{duration}</span>
           </div>
 
           <div className="absolute inset-0 flex items-center justify-center">
